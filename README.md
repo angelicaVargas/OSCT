@@ -1,2 +1,2 @@
-# Team5
+# OSCT
 For Senior Design Project
