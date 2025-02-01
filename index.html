@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Bootstrap Vite Project</title>
+    <link rel="stylesheet" href="/src/style.css">
+</head>
+<body>
+    <div class="container text-center mt-5">
+        <h1 class="text-primary">Operacion Salud Colima Tamizaje</h1>
+        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Open Modal Test</button>
+    </div>
+
+    <!-- Bootstrap Modal Component -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal Title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    This is a Bootstrap modal using Vite!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+</html>
