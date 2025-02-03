@@ -20,12 +20,15 @@ npm install
 ```sh
 npm run dev
 ```
+After executing, control click on the local host link
+```sh
+Local:   http://localhost:3000/
+```
 
 ### Build for Production
 ```sh
 npm run build
 ```
-
 
 
 
