@@ -20,10 +20,11 @@ npm install
 ```sh
 npm run dev
 ```
-After executing, control click on the local host link
+After executing, control click on the local host link.
 ```sh
 Local:   http://localhost:3000/
 ```
+If your browser gives you an error page stating that it can not open the site, copy and paste the link manually into your browser bar.
 
 ### Build for Production
 ```sh
