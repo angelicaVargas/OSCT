@@ -3,15 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Bootstrap Vite Project</title>
+    <title>Operacion Salud Colima Tamizaje</title>
     <link rel="stylesheet" href="/src/style.css">
 </head>
 <body>
-    <!-- Add Navigation bar here-->
-    <div id="navbar-container"></div>
+    <!-- Navigation Bar Component-->
+    <nav class="nav nav-pills nav-fill">
+        <!-- href="#"  indicates that link is available to the users-->
+         <!-- aria-current indicates that the user is on that page-->
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link" href="#">Schedule</a>
+            <a class="nav-link" href="#">Lab Results</a>
+            <a class="nav-link" href="#">Documents</a>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+    </nav>
     <div class="container text-center mt-5">
         <h1 class="text-primary">Operacion Salud Colima Tamizaje</h1>
-        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Open Modal Test</button>
+        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Alert!</button>
     </div>
 
     <!-- Bootstrap Modal Component -->
@@ -19,11 +30,11 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal Title</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">New Document Added!</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    This is a Bootstrap modal using Vite!
+                    Example: Lab Results January 28th 2025
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
