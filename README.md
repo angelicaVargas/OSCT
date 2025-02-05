@@ -31,19 +31,24 @@ If your browser gives you an error page stating that it can not open the site, c
 npm run build
 ```
 ## Jira Integration 
-To use Jira's Integration, you need to use an issue key to sync progress to Jira's dashboard.
+To use Jira's Integration, you need to use an issue key to sync progress to Jira's Board.
 Issue keys are just special tags that are tied to any element we track in the app(Our to do tasks).
 Issue keys are displayed on the task card.
 
 ### Branching with Jira issue keys
-When creating your working branch, include the issue key for the task you are going to work on.
+When creating your working branch, include the issue key for the task you are going to work on in order to sync with Jira Board.
 ```sh
-git checkout -b JRA-123-<branch-name>
+git checkout -b issue-key-<branch-name>
 ```
 
 ### Committing with Jira issue keys
-When committing from your working branch, include the issue key for the task you were working on.
+When committing from your working branch, include the issue key for the task you were working on to update Jira's Board.
 ```sh
-git commit -m "JRA-123 <summary of commit>"
+git commit -m "issue-key <summary of commit>"
 ```
-### End of Jira Issue
+### Commit Resolved Issue When Pushing New Branch
+If you receive the error "fatal: The current branch <issue-key-<branch-name>> has no upstream branch.",
+run the following:
+```sh
+git push --set-upstream origin issue-key-<branch-name>
+```
