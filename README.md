@@ -46,3 +46,4 @@ When committing from your working branch, include the issue key for the task you
 ```sh
 git commit -m "JRA-123 <summary of commit>"
 ```
+### End of Jira Issue
