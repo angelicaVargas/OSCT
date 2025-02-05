@@ -30,6 +30,19 @@ If your browser gives you an error page stating that it can not open the site, c
 ```sh
 npm run build
 ```
+## Jira Integration 
+To use Jira's Integration, you need to use an issue key to sync progress to Jira's dashboard.
+Issue keys are just special tags that are tied to any element we track in the app(Our to do tasks).
+Issue keys are displayed on the task card.
 
+### Branching with Jira issue keys
+When creating your working branch, include the issue key for the task you are going to work on.
+```sh
+git checkout -b JRA-123-<branch-name>
+```
 
-
+### Committing with Jira issue keys
+When committing from your working branch, include the issue key for the task you were working on.
+```sh
+git commit -m "JRA-123 <summary of commit>"
+```
