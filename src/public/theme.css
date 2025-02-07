@@ -1,0 +1,20 @@
+:root {
+    /* Primary Palette */
+    --white: #FFFFFF;   
+    --black: #000000;
+    --primary-red: #7C1332;
+
+    --light-surface-one: #F2F2F2;
+    --light-surface-two: #EFEFEF;
+    --light-surface-three: #D9D9D9;
+
+    --dark-surface-one: #70757A;
+    --dark-surface-two: #525659;
+    --dark-surface-three: #414855;
+
+    /* Colima flag colors */
+    --medium-red: #AF0002;
+    --bright-red: #D91721;
+    --yellow: #F8C301;
+    --green: #849236;
+}
