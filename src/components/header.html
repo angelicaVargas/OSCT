@@ -1,17 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<!--Schedule Page Script-->
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Operación Salud Colima Tamizaje</title>
-    <link rel="stylesheet" href="/src/style.css">
-    <link rel="stylesheet" href="/src/assets/theme.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
-
 <body>
-    <!--Red Banner Header-->
     <div class="container-fluid main-body">
         <div class="header-container d-flex flex-row"> 
             <!--Logo-->
@@ -35,13 +24,12 @@
     <!--Navigation Bar-->
     <div class="navigation-container">
         <nav class="nav nav-pills nav-fill">
-            <a class="nav-link" href="index.html">Home</a>
-            <a class="nav-link active" aria-current="page" href="schedule.html">Schedule</a>
-            <a class="nav-link" href="lab_results.html">Lab Results</a>
-            <a class="nav-link" href="documents.html">Documents</a>
+            <a class="nav-link" href="index.html" data-page="index">Home</a>
+            <a class="nav-link" href="/src/components/schedule.html" data-page="schedule">Schedule</a>
+            <a class="nav-link" href="/src/components/lab_results.html" data-page="lab_results">Lab Results</a>
+            <a class="nav-link" href="/src/components/documents.html" data-page="documents">Documents</a>
         </nav>
     </div>
-   
 
     <style>
         .main-body {
@@ -57,12 +45,13 @@
             text-align: left;
             margin-left: 16px;
         }
+
         .user-container {
             margin-left: auto;
             margin-right: 16px;
             align-items: center;
         }
-        .btn{
+        .btn {
             --bs-btn-border-radius: 10px; 
             width: 120px;
             height: 50px;
@@ -85,15 +74,17 @@
             border-color: transparent;
             padding: .2rem;
         }
+
+        .nav-pills .nav-link {
+            border-radius: 0;
+            width: 125px;
+        }
         .nav-pills .nav-link.active {
             background-color:#D9D9D9;
             border-bottom: 4px solid #7C1332;
-            width: 183px;
+            width: 125px;
             height: 60px;
             color:black;
-        }
-        .nav-pills .nav-link {
-            border-radius: 0;
         }
         .nav-link {
             color:black;
@@ -108,7 +99,5 @@
             --bs-nav-link-padding-y: 1rem;
         }
     </style>
-
-    <script type="module" src="/src/main.js"></script>
 </body>
 </html>
