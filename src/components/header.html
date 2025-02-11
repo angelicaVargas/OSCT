@@ -75,28 +75,31 @@
             padding: .2rem;
         }
 
+/* Navigation Bar */
         .nav-pills .nav-link {
-            border-radius: 0;
-            width: 125px;
+            border-radius: 0 !important;
+            width: 125px !important;
+            color: black !important;
+            --bs-nav-link-font-size: 20px !important; 
+            font-weight: 600;
         }
         .nav-pills .nav-link.active {
-            background-color:#D9D9D9;
-            border-bottom: 4px solid #7C1332;
-            width: 125px;
-            height: 60px;
-            color:black;
+            background-color: var(--light-surface-three) !important;
+            border-bottom: 4px solid #7C1332 !important;
+            font-weight: 600;
+            width: 125px !important;
+            height: 60px !important;
         }
-        .nav-link {
-            color:black;
-            --bs-nav-link-font-size: 20px;
+        .nav-pills .nav-link:hover {
+            color: #7C1332 !important;
+            background-color: var(--light-surface-one) !important;
         }
         .nav {
-            --bs-nav-link-hover-color: #7C1332;
-            background-color: #EFEFEF;
-            box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
-            height: 60px;
-            --bs-nav-link-padding-x: 1rem;
-            --bs-nav-link-padding-y: 1rem;
+            background-color: var(--light-surface-two) !important;
+            box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25) !important;
+            height: 60px !important;
+            --bs-nav-link-padding-x: 1rem !important;
+            --bs-nav-link-padding-y: 1rem !important;
         }
     </style>
 </body>
