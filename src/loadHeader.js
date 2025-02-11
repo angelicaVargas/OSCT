@@ -15,7 +15,7 @@ function loadHeader() {
             // Set the active tab based on the current page
             const pathParts = window.location.pathname.split('/');
             const lastPart = pathParts.pop();
-            const currentPage = lastPart ? lastPart.split('.').shift() : 'index';
+            const currentPage = lastPart ? lastPart.split('.').shift() : 'home';
             document.querySelectorAll('.nav-link').forEach(link => {
                 if (link.getAttribute('data-page') === currentPage) {
                     link.classList.add('active');
@@ -29,5 +29,29 @@ function loadHeader() {
         });
 }
 
+// Function to load content
+function loadContent(page) {
+    const contentElement = document.getElementById('content');
+    if (contentElement) {
+        contentElement.classList.add('loading');
+    }
+    fetch(`/src/components/${page}.html`)
+        .then(response => response.text())
+        .then(data => {
+            if (contentElement) {
+                contentElement.innerHTML = data;
+                contentElement.classList.remove('loading');
+            }
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+            // @ts-ignore
+            contentElement.classList.remove('loading');
+        });
+}
+
 // Call the function to load the header
 loadHeader();
+
+// Load the initial content for the home page
+loadContent('home');
