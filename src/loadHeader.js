@@ -12,6 +12,11 @@ function loadHeader() {
             if (headerElement) {
                 headerElement.innerHTML = data;
             }
+
+            
+            //add active button for profile page
+
+
             // Set the active tab based on the current page
             const pathParts = window.location.pathname.split('/');
             const lastPart = pathParts.pop();
@@ -23,6 +28,10 @@ function loadHeader() {
                     link.classList.remove('active');
                 }
             });
+
+
+            //Add listeners for profile page
+
 
             // Add event listeners to navigation links
             document.querySelectorAll('.nav-link').forEach(link => {
