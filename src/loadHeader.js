@@ -23,6 +23,23 @@ function loadHeader() {
                     link.classList.remove('active');
                 }
             });
+
+            // Add event listeners to navigation links
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const page = link.getAttribute('data-page');
+                    loadContent(page);
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    link.classList.add('active');
+                    history.pushState(null, '', `/${page}.html`);
+                });
+            });
+
+            // Load the initial content for the home page after the header is loaded
+            loadContent('home');
         })
         .catch(error => {
             console.error('There was a problem with the fetch operation:', error);
@@ -45,13 +62,11 @@ function loadContent(page) {
         })
         .catch(error => {
             console.error('There was a problem with the fetch operation:', error);
-            // @ts-ignore
-            contentElement.classList.remove('loading');
+            if (contentElement) {
+                contentElement.classList.remove('loading');
+            }
         });
 }
 
 // Call the function to load the header
 loadHeader();
-
-// Load the initial content for the home page
-loadContent('home');
