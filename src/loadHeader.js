@@ -14,7 +14,7 @@ function loadHeader() {
             }
 
             
-            //add active button for profile page
+            //add active button for profile page?
 
 
             // Set the active tab based on the current page
@@ -30,7 +30,7 @@ function loadHeader() {
             });
 
 
-            //Add listeners for profile page
+            //Add listeners for profile page to fix issue?
 
 
             // Add event listeners to navigation links
