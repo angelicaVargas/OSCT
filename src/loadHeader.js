@@ -12,11 +12,6 @@ function loadHeader() {
             if (headerElement) {
                 headerElement.innerHTML = data;
             }
-
-            
-            //add active button for profile page?
-
-
             // Set the active tab based on the current page
             const pathParts = window.location.pathname.split('/');
             const lastPart = pathParts.pop();
@@ -28,11 +23,6 @@ function loadHeader() {
                     link.classList.remove('active');
                 }
             });
-
-
-            //Add listeners for profile page to fix issue?
-
-
             // Add event listeners to navigation links
             document.querySelectorAll('.nav-link').forEach(link => {
                 link.addEventListener('click', function(event) {
@@ -46,7 +36,6 @@ function loadHeader() {
                     history.pushState(null, '', `/${page}.html`);
                 });
             });
-
             // Load the initial content for the home page after the header is loaded
             loadContent('home');
         })
@@ -54,7 +43,6 @@ function loadHeader() {
             console.error('There was a problem with the fetch operation:', error);
         });
 }
-
 // Function to load content
 function loadContent(page) {
     const contentElement = document.getElementById('content');
@@ -76,6 +64,5 @@ function loadContent(page) {
             }
         });
 }
-
 // Call the function to load the header
 loadHeader();
