@@ -1,55 +1,67 @@
-function loadLogin() {
-    fetch('/src/components/login.html')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok ' + response.statusText);
+function loadLogin() 
+{
+//response for fetch request of the html file data
+fetch('/src/components/login.html')
+    .then(response => response.text())
+    .then(data => 
+        {
+        //id location where the html gets placed
+        const loginElement = document.getElementById('login-page');
+        if (loginElement) 
+            {
+            loginElement.innerHTML = data;
             }
-            return response.text();
-        }) //TODO: duplicate this for loadIntContnet
-        .then(data => {
-            const loginElement = document.getElementById('logIn');
-            if (loginElement) {
-                loginElement.innerHTML = data;
+        //listener for the submit button
+        document.getElementById('login').addEventListener('submit', function(event)
+        {
+            //prevent page refreshing 
+            event.preventDefault();
+            //users unsername and password inputs
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            //test for retrivial of inputs
+            console.log('Username:', username);
+            console.log('Password:', password);
+            //conditions for checking which type of user is trying to log in
+            if (username === "patient") {
+                loadInitContent();
             }
-    });
-    //TODO: Add listener for submit button labeled as ID login
-    document.getElementById('login').addEventListener('submit', function(event){
-        event.preventDefault();
-        //initializes a variable to hold the username and password from the form input 
-        const username = document.getElementById('username').value;
-        const password = document.getElementById('password').value;
-        if (username == "patient") {
-            loadInitContent();
-        }
-        else if (username == "employee") {
-            loadContent('/src/components/carePersonel_users/home.html');
-        }
-        else if (username == "admin") {
-            loadContent('/src/components/admin_users/home.html');
-        }
-        else {
-            console.log("Input is not valid");
-        }
-    });
-}
-// Function to load content
-function loadInitContent() {
-    fetch(`/src/components/home.html`)
-        .then(response => response.text())
-        .then(data => {
-            if (contentElement) {
-                contentElement.innerHTML = data;
-                contentElement.classList.remove('loading');
+            else if (username === "employee") {
+                loadContent('/src/components/carePersonel_users/home.html');
             }
-        })
-        .catch(error => {
-            console.error('There was a problem with the fetch operation:', error);
-            if (contentElement) {
-                contentElement.classList.remove('loading');
+            else if (username === "admin") {
+                loadContent('/src/components/admin_users/home.html');
+            }
+            else {
+                console.log("Input is not valid");
             }
         });
+        })
+    .catch(error => 
+        {
+        console.error('Error when attempting to load login form:', error);
+        });
 }
-//TODO: need to set up conditions for type of users being logged in. 
-    //For now I will make a placeholder and usd the words parent, admin and collector for testing navigation and user pages
+
+// ------------------------Function to load content--------------------------------------------------
+function loadInitContent() 
+{
+const contentElement = document.getElementById('content');
+//test for page being loaded
+console.log('Loading page:', page);
+fetch(`/src/components/home.html`)
+    .then(response => response.text())
+    .then(data => 
+        {
+        if (contentElement) 
+            {
+            contentElement.innerHTML = data;
+            }
+        })
+    .catch(error => 
+        {
+        console.error('Error when attempting to load initial content:', error);
+        });
+}
 loadLogin();
 
