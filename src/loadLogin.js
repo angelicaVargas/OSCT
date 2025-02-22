@@ -24,7 +24,8 @@ fetch('/src/components/login.html')
             console.log('Password:', password);
             //conditions for checking which type of user is trying to log in
             if (username === "patient") {
-                loadInitContent();
+                loadInitContent('home');
+                //TODO: loadHeader(); //make it so content and header load exactly at the same time
             }
             else if (username === "employee") {
                 loadContent('/src/components/carePersonel_users/home.html');
@@ -35,6 +36,9 @@ fetch('/src/components/login.html')
             else {
                 console.log("Input is not valid");
             }
+            if (loginElement) {
+                loginElement.innerHTML = '';
+            }
         });
         })
     .catch(error => 
@@ -44,17 +48,18 @@ fetch('/src/components/login.html')
 }
 
 // ------------------------Function to load content--------------------------------------------------
-function loadInitContent() 
+function loadInitContent(page) 
 {
 const contentElement = document.getElementById('content');
 //test for page being loaded
 console.log('Loading page:', page);
-fetch(`/src/components/home.html`)
+fetch(`/src/components/${page}.html`)
     .then(response => response.text())
     .then(data => 
         {
         if (contentElement) 
             {
+            loadHeader();
             contentElement.innerHTML = data;
             }
         })

@@ -49,8 +49,6 @@ fetch('/src/components/header.html')
                 history.pushState(null, '', `/${page}.html`);
                 });
             });
-        // Load the initial content for the home page after the header is loaded
-        loadContent('home');
         })
     .catch(error => 
         {
@@ -61,6 +59,7 @@ fetch('/src/components/header.html')
 //--------------------Function to load content---------------------
 function loadContent(page) 
 {
+const contentElement = document.getElementById('content');
 //fetch content for requested page
 fetch(`/src/components/${page}.html`)
     .then(response => response.text())
@@ -81,5 +80,3 @@ fetch(`/src/components/${page}.html`)
             }
         });
 }
-// Call the function to load the header
-loadHeader();
