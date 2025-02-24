@@ -23,6 +23,9 @@ fetch('/src/components/login.html')
             console.log('Username:', username);
             console.log('Password:', password);
             //conditions for checking which type of user is trying to log in
+            if (loginElement) {
+                loginElement.innerHTML = '';
+            }
             if (username === "patient") {
                 loadInitContent('home');
                 //TODO: loadHeader(); //make it so content and header load exactly at the same time
@@ -35,9 +38,6 @@ fetch('/src/components/login.html')
             }
             else {
                 console.log("Input is not valid");
-            }
-            if (loginElement) {
-                loginElement.innerHTML = '';
             }
         });
         })
