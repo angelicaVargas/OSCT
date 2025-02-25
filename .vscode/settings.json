@@ -1,18 +1,14 @@
 {
-    "sqltools.connections": [
-        {
-            "mysqlOptions": {
-                "authProtocol": "default",
-                "enableSsl": "Disabled"
-            },
-            "previewLimit": 50,
-            "server": "localhost",
-            "port": 3306,
-            "driver": "MySQL",
-            "name": "Team5 Database",
-            "database": "team5_db",
-            "username": "root",
-            "password": ""
-        }
-    ]
+  "mysqlOptions": {
+    "authProtocol": "default"
+  },
+  "previewLimit": 50,
+  "server": "34.42.21.62",
+  "port": 3306,
+  "driver": "MySQL",
+  "name": "OSCT",
+  "database": "team5_db",
+  "username": "root",
+  "password": "HealthScreening5",
+  "connectionTimeout": 30
 }
