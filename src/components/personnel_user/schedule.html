@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--Schedule Page Script-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule - Operación Salud Colima Tamizaje</title>
+    <link rel="stylesheet" href="/src/style.css">
+    <link rel="stylesheet" href="/src/assets/theme.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+
+<body>
+    <!-- Placeholder for the header -->
+    <div id="header"></div> 
+    
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="schedule-container mt-5"> <!--mt-5: larger top margin-->
+          <div class="card">
+            <div class="card-body d-flex flex-column"> <!--Makes card customizable-->
+                  <div class="schedule-content">
+                    <h1 class="card-title">Personnel Schedule</h1>
+                    <h2 class="table-title">Example Schedule Display Filler</h2>
+                    <!-- Example table to show until database is ready-->
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <th>Name of School</th>
+                            <th>Location</th>
+                            <th>Date</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>FRANCISCO HERNANDEZ ESPINOSA</td>
+                            <td>COLIMA</td>
+                            <td>LUNES 23/09/24</td>
+                          </tr>
+                          <tr>
+                            <td>JESÚS SILVERIO CAVAZOS CEBALLOS</td>
+                            <td>COLIMA</td>
+                            <td>LUNES 23/09/24</td>
+                          </tr>
+                          <tr>
+                            <td>JESUS ALCARAZ RODRIGUEZ</td>
+                            <td>LA ESPERANZA</td>
+                            <td>LUNES 23/09/24</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/src/loadHeader.js"></script>
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+<style>
+    .main-content {
+        display:flex;
+        justify-content:center;
+        width: 100%;
+        align-items:center;
+        min-height: 100vh;
+    }
+    .schedule-container {
+        width: 70%;
+    }
+    .card {
+        background-color:#F2F2F2;
+        height: 100%;
+        min-height: 100vh;
+    }
+    .schedule-content{
+        margin-left:25px;
+        margin-right:25px;
+    }
+    .card-title {
+      font-size:32px;
+      font-weight: 500;
+      text-align:left;
+      margin-bottom:25px;
+      margin-top:25px;
+    }
+    .table{
+        margin-bottom:0px;
+        --bs-table-bg:#F2F2F2;
+        --bs-table-border-color:#000;
+        align-items:center;
+
+    }
+    .td a{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        color:#000;
+    }
+    .table-title {
+        font-size: 20px;
+        margin-bottom:20px;
+    }
+</style>
+
+</html>

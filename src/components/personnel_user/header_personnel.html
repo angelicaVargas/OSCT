@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <div class="container-fluid main-body">
+        <div class="header-container d-flex flex-row"> 
+            <!--Logo-->
+            <div class="media">
+                <img src="/src/assets/img/logoWhite.png" alt="logo" width="45" height="60">
+            </div>
+            <!--Project name-->
+            <div class="project-title-container">
+                <h1 class="project-title" style="font-size: 32px; margin-bottom: 0;">OSCT</h1>
+                <h2 class="project-subtitle" style="font-size: 18px; font-weight: 400;">Operación Salud Colima Tamizaje</h2>
+            </div>
+            <!--Profile Button-->
+            <div class="user-container">
+                <a class="btn btn-light" href="/src/components/profile.html" role="button" data-page="profile">
+                    <img src="/src/assets/img/The_Donkey.JPEG" class="img-thumbnail" alt="logo" width="50" height="50">
+                    Profile 
+                </a>
+            </div>
+        </div>
+    </div>
+    <!--Navigation Bar-->
+    <div class="navigation-container">
+        <nav class="nav nav-pills nav-fill">
+            <a class="nav-link" href="/src/components/personnel_user/home.html" data-page="personnel_user/home">Home:Personnel</a>
+            <a class="nav-link" href="/src/components/personnel_user/users.html" data-page="personnel_user/users">Users</a>
+            <a class="nav-link" href="/src/components/personnel_user/schedule.html" data-page="personnel_user/schedule">Schedule</a>
+        </nav>
+    </div>
+
+    <style>
+        .main-body {
+            background-color: var(--primary-red);
+        }
+        .header-container {
+            background-color: var(--primary-red);
+            height: 80px;
+            align-items: center;
+        }
+        .project-title-container {
+            color: var(--white);
+            text-align: left;
+            margin-left: 16px;
+        }
+
+        .user-container {
+            margin-left: auto;
+            margin-right: 16px;
+            align-items: center;
+        }
+        .btn {
+            --bs-btn-border-radius: 10px; 
+            width: 120px;
+            height: 50px;
+            flex-shrink: 0;
+            display: flex;
+            column-gap: 2px;
+            justify-content: space-between;
+            align-items: center;
+            border: 2px solid var(--light-surface-three);
+            border-radius: 10px;
+            cursor: pointer; 
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--dark-surface-three)
+        }
+        .img-thumbnail{
+            border-radius: 50px;
+            background: none;
+            border-width:1px;
+            border-color: transparent;
+            padding: .2rem;
+        }
+
+/* Navigation Bar */
+        .nav-pills .nav-link {
+            border-radius: 0 !important;
+            width: 125px !important;
+            color: black !important;
+            --bs-nav-link-font-size: 20px !important; 
+            font-weight: 600;
+        }
+        .nav-pills .nav-link.active {
+            background-color: var(--light-surface-three) !important;
+            border-bottom: 4px solid #7C1332 !important;
+            font-weight: 600;
+            width: 125px !important;
+            height: 60px !important;
+        }
+        .nav-pills .nav-link:hover {
+            color: #7C1332 !important;
+            background-color: var(--light-surface-one) !important;
+        }
+        .nav {
+            background-color: var(--light-surface-two) !important;
+            box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25) !important;
+            height: 60px !important;
+            --bs-nav-link-padding-x: 1rem !important;
+            --bs-nav-link-padding-y: 1rem !important;
+        }
+    </style>
+</body>
+</html>

@@ -22,19 +22,19 @@ fetch('/src/components/login.html')
             //test for retrivial of inputs
             console.log('Username:', username);
             console.log('Password:', password);
-            //conditions for checking which type of user is trying to log in
             if (loginElement) {
                 loginElement.innerHTML = '';
             }
+            //conditions for checking which type of user is trying to log in
+            //sends the home page and header page path associated with that user to loadInitContent
             if (username === "patient") {
-                loadInitContent('home');
-                //TODO: loadHeader(); //make it so content and header load exactly at the same time
+                loadInitContent('/src/components/patient_user/home.html', '/src/components/patient_user/header_patient.html');
             }
-            else if (username === "employee") {
-                loadContent('/src/components/carePersonel_users/home.html');
+            else if (username === "personnel") {
+                loadInitContent('/src/components/personnel_user/home.html', '/src/components/personnel_user/header_personnel.html');
             }
             else if (username === "admin") {
-                loadContent('/src/components/admin_users/home.html');
+                loadInitContent('/src/components/admin_user/home.html', '/src/components/admin_user/header_admin.html');
             }
             else {
                 console.log("Input is not valid");
@@ -47,19 +47,19 @@ fetch('/src/components/login.html')
         });
 }
 
-// ------------------------Function to load content--------------------------------------------------
-function loadInitContent(page) 
+// ------------------------Function to load intial content--------------------------------------------------
+function loadInitContent(page, userHeader) 
 {
 const contentElement = document.getElementById('content');
 //test for page being loaded
 console.log('Loading page:', page);
-fetch(`/src/components/${page}.html`)
+fetch(page)
     .then(response => response.text())
     .then(data => 
         {
         if (contentElement) 
             {
-            loadHeader();
+            loadHeader(userHeader);
             contentElement.innerHTML = data;
             }
         })

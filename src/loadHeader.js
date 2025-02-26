@@ -1,8 +1,8 @@
 // -----------------Function to load the header-----------------
-function loadHeader() 
+function loadHeader(userHeader) 
 {
 //response for fetch request of the html file data
-fetch('/src/components/header.html')
+fetch(userHeader)
     .then(response => 
         {
         if (!response.ok) 
