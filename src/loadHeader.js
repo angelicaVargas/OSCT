@@ -24,14 +24,21 @@ fetch(userHeader)
         const currentPage = lastPart ? lastPart.split('.').shift() : 'home';
         document.querySelectorAll('.nav-link').forEach(link => 
             {
-            if (link.getAttribute('data-page') === currentPage) 
-                {
-                link.classList.add('active');
-                } 
-            else 
-                {
-                link.classList.remove('active');
-                }
+            //TODO: Simplify this process into a separate function call. 
+            //TODO: Fix bug with active bar bugging out when navigating and switching accounts
+            const pathParts = link.getAttribute('data-page').split('/');
+            const lastPart = pathParts.pop();
+            const fetchedPage = lastPart.split('.').shift();
+            console.log('fetchedpage:', fetchedPage);  //using for error checking
+            console.log('currentPage:', currentPage); //using for error checking
+                if (fetchedPage === currentPage) 
+                    {
+                    link.classList.add('active');
+                    } 
+                else 
+                    {
+                    link.classList.remove('active');
+                    }
             });
         // Event listeners to navigation links
         document.querySelectorAll('.nav-link').forEach(link => 
@@ -49,6 +56,21 @@ fetch(userHeader)
                 history.pushState(null, '', `/${page}.html`);
                 });
             });
+        // Event listeners for profile button
+        const profileButton = document.getElementById('profile-button');
+        if(profileButton){
+            profileButton.addEventListener('click', function(event)
+                {
+                    event.preventDefault();
+                    const page = profileButton.getAttribute('data-page');
+                    loadContent(page);
+                    document.querySelectorAll('.nav-link').forEach(link => 
+                        {
+                        link.classList.remove('active');
+                        });
+                    history.pushState(null, '', `/${page}.html`);
+                });
+            }
         })
     .catch(error => 
         {
