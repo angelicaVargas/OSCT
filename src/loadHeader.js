@@ -63,6 +63,7 @@ fetch(userHeader)
                 {
                     event.preventDefault();
                     const page = profileButton.getAttribute('data-page');
+                    console.log('profile page', page)
                     loadContent(page);
                     document.querySelectorAll('.nav-link').forEach(link => 
                         {
