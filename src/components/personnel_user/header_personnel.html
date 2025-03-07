@@ -9,8 +9,8 @@
             </div>
             <!--Project name-->
             <div class="project-title-container">
-                <h1 class="project-title" style="font-size: 32px; margin-bottom: 0;">OSCT</h1>
-                <h2 class="project-subtitle" style="font-size: 18px; font-weight: 400;">Operación Salud Colima Tamizaje</h2>
+                <h1 class="project-title" style="font-size: 2rem; margin-bottom: 0;">OSCT</h1>
+                <h2 class="project-subtitle" style="font-size: 1.125rem; font-weight: 400;">Operación Salud Colima Tamizaje</h2>
             </div>
             <!--Profile Button-->
             <div class="user-container ms-auto">
@@ -36,63 +36,64 @@
         }
         .header-container {
             background-color: var(--primary-red);
-            height: 80px;
             align-items: center;
+            height: 5rem;
         }
         .project-title-container {
             color: var(--white);
             text-align: left;
-            margin-left: 16px;
+            margin-left: 1rem;
         }
 
         .user-container {
-            margin-left: auto;
-            margin-right: 16px;
             align-items: center;
+            margin-left: auto;
+            margin-right: 1rem;
         }
         .btn {
-            --bs-btn-border-radius: 15px !important;
+            --bs-btn-border-radius: 0.9375rem !important;
             width: 100%;
-            height: 50px;
-            border: 2px solid var(--light-surface-three);
+            height: 3.125rem;
+            border: 0.125rem solid var(--light-surface-three);
             cursor: pointer; 
         }
         .user-text {
-            font-size: 16px;
+            color: var(--dark-surface-three);
+            font-size: 1rem;
             font-weight: 600;
-            color: var(--dark-surface-three)
         }
         .img-thumbnail{
-            border-radius: 50px;
             background: none;
-            border-width:1px;
+            border-radius: 3.125rem;
+            border-width: 0.0625rem;
             border-color: transparent;
-            padding: .2rem;
+            padding: 0.2rem;
         }
 
 /* Navigation Bar */
         .nav-pills .nav-link {
-            border-radius: 0 !important;
-            width: 125px !important;
-            color: black !important;
-            --bs-nav-link-font-size: 20px !important; 
+            --bs-nav-link-color:black;
+            --bs-nav-pills-border-radius: 0;
+            width: 7.8125rem !important;
             font-weight: 600;
+            --bs-nav-link-font-size: 1.25rem !important; 
         }
         .nav-pills .nav-link.active {
+            --bs-nav-pills-link-active-color:black;
             background-color: var(--light-surface-three) !important;
-            border-bottom: 4px solid #7C1332 !important;
+            border-bottom: 0.25rem solid #7C1332 !important;
             font-weight: 600;
-            width: 125px !important;
-            height: 60px !important;
+            width: 7.8125rem !important;
+            height: 3.75rem !important;
         }
         .nav-pills .nav-link:hover {
-            color: #7C1332 !important;
+            --bs-nav-link-hover-color: #7C1332;
             background-color: var(--light-surface-one) !important;
         }
         .nav {
             background-color: var(--light-surface-two) !important;
-            box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25) !important;
-            height: 60px !important;
+            box-shadow: 0rem 0rem 0.25rem 0rem rgba(0, 0, 0, 0.25) !important;
+            height: 3.75rem !important;
             --bs-nav-link-padding-x: 1rem !important;
             --bs-nav-link-padding-y: 1rem !important;
         }
