@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<!--Lab Results Page Script-->
+<!--Users Page-->
+<!--TODO: combined different user pages into one, currently they are used to see formatting for now.-->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,39 +19,44 @@
     <div class="main-content">
         <!-- Side Buttons Container-->
         <div class="button-container mt-5 d-flex flex-column">
-            <button class="btn-page btn-primary">Patients</button>
-            <button class="btn-page btn-primary">Personnel</button>
-            <button class="btn-page btn-primary">Admin</button>
+            <!--TODO: if data selection in loadHeader, change these to buttons instead of links-->
+            <a id="users-button" class="btn-page btn-primary" href="/src/components/admin_user/users_patient.html" role="button" data-page="admin_user/users_patient">Patients</a>
+            <a id="users-button" class="btn-page btn-primary" href="/src/components/admin_user/users_personnel.html" role="button" data-page="admin_user/users_personnel">Personnel</a>
+            <a id="users-button" class="btn-page btn-primary" href="/src/components/admin_user/users_admin.html" role="button" data-page="admin_user/users_admin">Admin</a>
         </div>
         <div class="users-container mt-5"> <!--mt-5: larger top margin-->
             <div class="card">
                 <div class="card-body d-flex flex-column"> <!--Makes card customizable-->
                     <div class="document-content">
-                    <h1 class="card-title">Users:Admin</h1>
+                    <h1 class="card-title">Patient Users</h1>
                     <!--Table List Container-->
                     <table class="table">
                         <thead>
                           <tr>
-                            <th>Name of School</th>
-                            <th>Location</th>
-                            <th>Date</th>
+                            <th>ID Number</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>User Type</th>
                           </tr>
                         </thead>
                         <tbody>
                           <tr>
-                            <td>FRANCISCO HERNANDEZ ESPINOSA</td>
-                            <td>COLIMA</td>
-                            <td>LUNES 23/09/24</td>
+                            <td>xxxxxxxxx</td>
+                            <td>Alice</td>
+                            <td>Kent</td>
+                            <td>Patient</td>
                           </tr>
                           <tr>
-                            <td>JESÚS SILVERIO CAVAZOS CEBALLOS</td>
-                            <td>COLIMA</td>
-                            <td>LUNES 23/09/24</td>
+                            <td>xxxxxxxxx</td>
+                            <td>Bob</td>
+                            <td>McClerk</td>
+                            <td>Patient</td>
                           </tr>
                           <tr>
-                            <td>JESUS ALCARAZ RODRIGUEZ</td>
-                            <td>LA ESPERANZA</td>
-                            <td>LUNES 23/09/24</td>
+                            <td>xxxxxxxxx</td>
+                            <td>Ramona</td>
+                            <td>Kimberk</td>
+                            <td>Patient</td>
                           </tr>
                         </tbody>
                       </table>
