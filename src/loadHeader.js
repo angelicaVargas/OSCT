@@ -72,6 +72,23 @@ fetch(userHeader)
                     history.pushState(null, '', `/${page}.html`);
                 });
             }
+        // Event listeners for users page buttons
+        // TODO:change this to load data chunks instead of html pages
+        const usersButton = document.getElementById('users-button');
+        if(usersButton){
+            usersButton.addEventListener('click', function(event)
+                {
+                    event.preventDefault();
+                    const page = usersButton.getAttribute('data-page');
+                    console.log('users page', page)
+                    loadContent(page);
+                    document.querySelectorAll('.nav-link').forEach(link => 
+                        {
+                        link.classList.remove('active');
+                        });
+                    history.pushState(null, '', `/${page}.html`);
+                });
+            }
         })
     .catch(error => 
         {
@@ -103,3 +120,4 @@ fetch(`/src/components/${page}.html`)
             }
         });
 }
+//TODO: Make another function to handle loading in certain class groups one html file to existing current page
