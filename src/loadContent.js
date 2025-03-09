@@ -1,7 +1,7 @@
-// -----------------Function to load the header-----------------
+// -----------------Function to load content-----------------
 function loadContent(userHeader) 
 {
-//response for fetch request of the html file data
+// -----------------Loads Header-----------------
 fetch(userHeader)
     .then(response => 
         {
@@ -40,7 +40,7 @@ fetch(userHeader)
                     link.classList.remove('active');
                     }
             });
-        // Event listeners to navigation links
+        // -----------------Event listener for navigation links-----------------
         document.querySelectorAll('.nav-link').forEach(link => 
             {
             link.addEventListener('click', function(event) 
@@ -56,7 +56,7 @@ fetch(userHeader)
                 history.pushState(null, '', `/${page}.html`);
                 });
             });
-        // Event listeners for profile button
+        // -----------------Event listener for profile button-----------------
         const profileButton = document.getElementById('profile-button');
         if(profileButton){
             profileButton.addEventListener('click', function(event)
@@ -72,7 +72,7 @@ fetch(userHeader)
                     history.pushState(null, '', `/${page}.html`);
                 });
             }
-        // Event listeners for users page buttons
+        // -----------------Event listener for users page buttons-----------------
         // TODO:change this to load data chunks instead of html pages
         const usersButton = document.getElementById('users-button');
         if(usersButton){
@@ -96,7 +96,7 @@ fetch(userHeader)
         });
 }
 
-//--------------------Function to load content---------------------
+//--------------------Function to fetch and load content---------------------
 function fetchContent(page) 
 {
 const contentElement = document.getElementById('content');
