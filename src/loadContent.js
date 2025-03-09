@@ -1,5 +1,5 @@
 // -----------------Function to load the header-----------------
-function loadHeader(userHeader) 
+function loadContent(userHeader) 
 {
 //response for fetch request of the html file data
 fetch(userHeader)
@@ -47,7 +47,7 @@ fetch(userHeader)
                 {
                 event.preventDefault();
                 const page = link.getAttribute('data-page');
-                loadContent(page);
+                fetchContent(page);
                 document.querySelectorAll('.nav-link').forEach(link => 
                     {
                     link.classList.remove('active');
@@ -64,7 +64,7 @@ fetch(userHeader)
                     event.preventDefault();
                     const page = profileButton.getAttribute('data-page');
                     console.log('profile page', page)
-                    loadContent(page);
+                    fetchContent(page);
                     document.querySelectorAll('.nav-link').forEach(link => 
                         {
                         link.classList.remove('active');
@@ -81,7 +81,7 @@ fetch(userHeader)
                     event.preventDefault();
                     const page = usersButton.getAttribute('data-page');
                     console.log('users page', page)
-                    loadContent(page);
+                    fetchContent(page);
                     document.querySelectorAll('.nav-link').forEach(link => 
                         {
                         link.classList.remove('active');
@@ -97,7 +97,7 @@ fetch(userHeader)
 }
 
 //--------------------Function to load content---------------------
-function loadContent(page) 
+function fetchContent(page) 
 {
 const contentElement = document.getElementById('content');
 //fetch content for requested page

@@ -59,7 +59,7 @@ fetch(page)
         {
         if (contentElement) 
             {
-            loadHeader(userHeader);
+            loadContent(userHeader);
             contentElement.innerHTML = data;
             }
         })
