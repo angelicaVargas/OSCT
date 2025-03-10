@@ -50,23 +50,29 @@ fetch('/src/components/login.html')
 // ------------------------Function to load intial content--------------------------------------------------
 function loadInitContent(page, userHeader) 
 {
-const contentElement = document.getElementById('content');
-//test for page being loaded
-console.log('Loading page:', page);
-fetch(page)
+    const contentElement = document.getElementById('content');
+    const headerElement = document.getElementById('header');
+    console.log('We are loading the initial page:', page); //console log output for error checking
+    console.log('our path for the header file:', userHeader); //console log output for error checking
+    if(headerElement.innerHTML.trim() === "")
+        {
+            console.log('Header Does not Exist:', userHeader); //console log output for error checking
+            loadContent(userHeader);
+        }
+    fetch(page)
     .then(response => response.text())
     .then(data => 
-        {
+    {
         if (contentElement) 
             {
-            loadContent(userHeader);
-            contentElement.innerHTML = data;
+                console.log('Maybe we need content load call here?:', page); //console log output for error checking
+                contentElement.innerHTML = data;
             }
-        })
+    })
     .catch(error => 
-        {
+    {
         console.error('Error when attempting to load initial content:', error);
-        });
+    });
 }
 loadLogin();
 
