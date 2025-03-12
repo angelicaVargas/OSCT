@@ -1,32 +1,27 @@
+// --------------------------------------------------------------------FUNCTION TO LOAD LOGIN--------------------------------------------------------------------
 function loadLogin() 
 {
-//response for fetch request of the html file data
 fetch('/src/components/login.html')
     .then(response => response.text())
     .then(data => 
         {
-        //id location where the html gets placed
         const loginElement = document.getElementById('login-page');
         if (loginElement) 
             {
             loginElement.innerHTML = data;
             }
-        //listener for the submit button
+        //---------------------------------------------------------Event Listener for Submit Button--------------------------------------------------------------------
         document.getElementById('login').addEventListener('submit', function(event)
         {
-            //prevent page refreshing 
-            event.preventDefault();
-            //users unsername and password inputs
+            event.preventDefault(); //prevent page refreshing
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
-            //test for retrivial of inputs
-            console.log('Username:', username);
-            console.log('Password:', password);
+            console.log('Username:', username); //console log output for error checking
+            console.log('Password:', password); //console log output for error checking
             if (loginElement) {
                 loginElement.innerHTML = '';
             }
-            //conditions for checking which type of user is trying to log in
-            //sends the home page and header page path associated with that user to loadInitContent
+            //---------------------------------------------------------User Type Conditions--------------------------------------------------------------------
             if (username === "patient") {
                 loadInitContent('/src/components/patient_user/home.html', '/src/components/patient_user/header_patient.html');
             }
@@ -47,7 +42,7 @@ fetch('/src/components/login.html')
         });
 }
 
-// ------------------------Function to load intial content--------------------------------------------------
+// --------------------------------------------------------------------FUNCTION TO LOAD INITIAL CONTENT--------------------------------------------------------------------
 function loadInitContent(page, userHeader) 
 {
     const contentElement = document.getElementById('content');
@@ -65,14 +60,13 @@ function loadInitContent(page, userHeader)
     {
         if (contentElement) 
             {
-                console.log('Maybe we need content load call here?:', page); //console log output for error checking
                 contentElement.innerHTML = data;
             }
     })
     .catch(error => 
     {
-        console.error('Error when attempting to load initial content:', error);
+        console.error('Error when attempting to load initial content:', error); //console log error for error handling
     });
 }
-loadLogin();
+loadLogin(); //initial call of program functionality
 

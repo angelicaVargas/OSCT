@@ -73,14 +73,14 @@
 
 /* Navigation Bar */
         .nav-pills .nav-link {
-            --bs-nav-link-color:black;
+            color:black !important;
             --bs-nav-pills-border-radius: 0;
             width: 7.8125rem !important;
             font-weight: 600;
             --bs-nav-link-font-size: 1.25rem !important; 
         }
         .nav-pills .nav-link.active {
-            --bs-nav-pills-link-active-color:black;
+            color: black !important;
             background-color: var(--light-surface-three) !important;
             border-bottom: 0.25rem solid #7C1332 !important;
             font-weight: 600;
@@ -88,8 +88,11 @@
             height: 3.75rem !important;
         }
         .nav-pills .nav-link:hover {
-            --bs-nav-link-hover-color: #7C1332;
+            color: #7C1332 !important;
             background-color: var(--light-surface-one) !important;
+        }
+        .nav-pills .nav-link:not(.active):not(:hover) {
+            color: black !important;
         }
         .nav {
             background-color: var(--light-surface-two) !important;
