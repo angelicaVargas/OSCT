@@ -70,7 +70,20 @@ function eventListeners()
             }
 
         //-----------------------------------------------------Event Listener for Admin 'Users' Page Buttons-------------------------------------------------------------
-        document.addEventListener('click', function(event)
+        
+        document.querySelectorAll('.table-btn').forEach(tableButton =>
+        {
+            tableButton.addEventListener('click', function(event)
+            {
+                event.preventDefault();
+                const table = tableButton.getAttribute('target');
+                const page = tableButton.getAttribute('data-page');
+                renderTable(page, table)
+            });
+
+
+        });
+        button.addEventListener('click', function(event)
         {
             if (event.target.classList.contains('btn-page')) 
                 {
@@ -155,18 +168,17 @@ function getLinkPage(link)
 function renderTable(page, tableID) 
 {
     console.log('We rendering the table'); //console log output for error checking
-    const tableElement = document.getElementById('table');
     fetch(`/src/components/${page}.html`)
     .then(response => response.text())
     .then(htmlString => 
     {
-        const tempDOM = document.createElement('div');
-        tempDOM.innerHTML = htmlString;
-        const tableData = tempDOM.querySelector(`#${tableID}`);
-        if (tableData) 
+        const tempData = document.createElement('div');
+        const tempData.innerHTML = htmlString;
+        const tableData = tempData.querySelector(tableID);
+        if (tableElement) 
             {
-            console.log('Fetched table content: ', tableData ? tableData.innerHTML : 'No table found'); //console log output for error checking
             tableElement.innerHTML = tableData.innerHTML;
+            tableElement.classList.remove('loading');
             }
         else 
             {
