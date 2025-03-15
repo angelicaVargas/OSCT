@@ -5,15 +5,17 @@ fetch('/src/components/login.html')
     .then(response => response.text())
     .then(data => 
         {
+        console.log('Loading Login Page.......................'); //console log output for status
         const loginElement = document.getElementById('login-page');
         if (loginElement) 
             {
             loginElement.innerHTML = data;
             }
+        console.log('Login Page Loaded!'); //console log output for status
         //---------------------------------------------------------Event Listener for Submit Button--------------------------------------------------------------------
         document.getElementById('login').addEventListener('submit', function(event)
         {
-            event.preventDefault(); //prevent page refreshing
+            event.preventDefault();
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
             console.log('Username:', username); //console log output for error checking
@@ -47,11 +49,10 @@ function loadInitContent(page, userHeader)
 {
     const contentElement = document.getElementById('content');
     const headerElement = document.getElementById('header');
-    console.log('We are loading the initial page:', page); //console log output for error checking
-    console.log('our path for the header file:', userHeader); //console log output for error checking
+    console.log('Loading Initial Page:', page); //console log output for error checking
+    console.log(''); //console log output for status
     if(headerElement.innerHTML.trim() === "")
         {
-            console.log('Header Does not Exist:', userHeader); //console log output for error checking
             loadContent(userHeader);
         }
     fetch(page)
@@ -68,5 +69,5 @@ function loadInitContent(page, userHeader)
         console.error('Error when attempting to load initial content:', error); //console log error for error handling
     });
 }
-loadLogin(); //initial call of program functionality
+loadLogin();
 
