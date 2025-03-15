@@ -5,10 +5,8 @@ function loadContent(userHeader)
     const headerElement = document.getElementById('header');
     if (headerElement.innerHTML.trim() !== "")
         {
-            console.log('Header already Exists:', userHeader); //console log output for error checking
             return;
         }
-        console.log('Header Does not Exist 2:', userHeader); //console log output for error checking
     fetch(userHeader)
     .then(response => 
     {
@@ -20,12 +18,14 @@ function loadContent(userHeader)
     })
     .then(data => 
     {
+        console.log('Loading Header.......................'); //console log output for status
         const headerElement = document.getElementById('header');
         if (headerElement) 
             {
             headerElement.innerHTML = data;
             }
-            console.log('We loaded the header'); //console log output for error checking
+        console.log('Header Loaded!'); //console log output for error checking
+        console.log(''); //console log output for status
         //------------------------------------------------------Sets Active Tab & Begins Event Listening-------------------------------------------------------------------------
         const currentPage = (history.state && history.state.page) || getPage(); //page = history if state history != null, otherwise = output from getPage
         updateActiveTab(currentPage);
@@ -40,7 +40,9 @@ function loadContent(userHeader)
 //-------------------------------------------------------------------FUNCTION FOR EVENT LISTENERS---------------------------------------------------------------------------------
 function eventListeners()
 {
-    console.log('We are adding the listeners'); //console log output for error checking
+    console.log('.......................Adding Listeners.......................'); //console log output for status
+    console.log(''); //console log output for status
+    console.log('Adding Navigation Event Listeners.......................'); //console log output for status
     //---------------------------------------------------------Event Listener for Page Navigation Links--------------------------------------------------------------------
     document.querySelectorAll('.nav-link').forEach(link => 
         {
@@ -55,9 +57,11 @@ function eventListeners()
         });
 
         //------------------------------------------------------Event Listener for 'Profile' Page Button-------------------------------------------------------------
+        console.log('Adding Profile Event Listener.......................'); //console log output for status
         const profileButton = document.getElementById('profile-button');
         if(profileButton)
             {
+                console.log('Profile Event Listener Added!'); //console log output for status
                 profileButton.addEventListener('click', function(event)
                 {
                     event.preventDefault();
@@ -70,7 +74,7 @@ function eventListeners()
             }
 
         //-----------------------------------------------------Event Listener for Admin 'Users' Page Buttons-------------------------------------------------------------
-        
+        console.log('Adding Users List Button Event Listeners.......................'); //console log output for status
         document.querySelectorAll('.table-btn').forEach(tableButton =>
         {
             tableButton.addEventListener('click', function(event)
@@ -80,37 +84,25 @@ function eventListeners()
                 const page = tableButton.getAttribute('data-page');
                 renderTable(page, table)
             });
-
-
         });
-        button.addEventListener('click', function(event)
-        {
-            if (event.target.classList.contains('btn-page')) 
-                {
-                    console.log("Button clicked:", event.target); //console log output for error checking
-                    const page = event.target.getAttribute('data-page');
-                    console.log('user button page: ', page); //console log output for error checking
-                    fetchContent(page);
-                    updateActiveTab(page);
-                    updateHistory(page);
-                }
-        });
+        console.log('Listeners Added!'); //console log output for status 
+        console.log(''); //console log output for status
 }
 
 //----------------------------------------------------------------FUNCTION TO FETCH AND LOAD CONTENT-------------------------------------------------------------
 function fetchContent(page) 
 {
-    console.log('We are getting the content'); //console log output for error checking
+    console.log('Fetching Content.......................'); //console log output for status
     const contentElement = document.getElementById('content');
-    //fetch content for requested page
     fetch(`/src/components/${page}.html`)
     .then(response => response.text())
     .then(data => 
     {
         if (contentElement) 
             {
-            contentElement.innerHTML = data;
-            contentElement.classList.remove('loading');
+                contentElement.innerHTML = data;
+                console.log('Content Loaded!'); //console log output for status
+                contentElement.classList.remove('loading');
             }
     })
     .catch(error => 
@@ -122,7 +114,8 @@ function fetchContent(page)
 //---------------------------------------------------------------FUNCTION TO UPDATE ACTIVE TAB STATUS--------------------------------------------------------------------
 function updateActiveTab(page)
 {
-    console.log('We are updating the active tab'); //console log output for error checking
+    console.log('.......................Updating Active Tab.......................'); //console log output for status
+    console.log(''); //console log output for status
     document.querySelectorAll('.nav-link').forEach(link => 
     {
         const fetchedPage = getLinkPage(link); //call function to get the page from nav link
@@ -130,50 +123,59 @@ function updateActiveTab(page)
         console.log('currentPage:', page);  //console log output for error checking
             if (fetchedPage === page) 
                 {
+                console.log('fetchedPage === currentPage');  //console log output for error checking
+                console.log(''); //console log output for status
                 link.classList.add('active');
                 } 
             else 
                 {
+                console.log('fetchedPage != currentPage');  //console log output for error checking
+                console.log(''); //console log output for status
                 link.classList.remove('active');
                 }
     });
+    console.log('Active Tab Updated!'); //console log output for status
+    console.log(''); //console log output for status
 }
 
 //---------------------------------------------------------------FUNCTION TO UPDATE HISTORY ATTRIBUTE--------------------------------------------------------------------
 function updateHistory(page)
 {
-    console.log('We updating the history'); //console log output for error checking
+    console.log('.......................Updating Page History.......................'); //console log output for status
     history.pushState({ page: page},'', `/${page}.html`);
+    console.log('Page History Updated!'); //console log output for status
 }
 
 //------------------------------------------------------------------FUNCTION TO GET CURRENT PAGE--------------------------------------------------------------------
-function getPage()
+function getPage() //TODO: Fix this function to return the path with the folder that the html page is in instead of just the html file name
 {
-    console.log('We are getting the page'); //console log output for error checking
+    console.log('Getting Window Page.......................'); //console log output for status
     const pathParts = window.location.pathname.split('/');
     const lastPart = pathParts.pop();
+    console.log('Done!'); //console log output for status
     return lastPart ? lastPart.split('.').shift() : 'home';
 }
 
 //------------------------------------------------------------------FUNCTION TO GET PAGE FROM LINK--------------------------------------------------------------------
 function getLinkPage(link)
 {
-    console.log('We are getting the link page'); //console log output for error checking
-    const pathParts = link.getAttribute('data-page').split('/');
-    const lastPart = pathParts.pop();
-    return lastPart.split('.').shift();
+    console.log('Getting Path for Active Tab.......................'); //console log output for status
+    const linkPath = link.getAttribute('data-page');
+    console.log('Path:', linkPath); //console log output for status
+    return linkPath;
 }
 
 //------------------------------------------------------------------FUNCTION TO RENDER TABLES--------------------------------------------------------------------
 function renderTable(page, tableID) 
 {
-    console.log('We rendering the table'); //console log output for error checking
+    console.log('.......................Rendering Table.......................'); //console log output for status
+    const tableElement = document.getElementsById('table');
+    const tempData = document.createElement('div');
     fetch(`/src/components/${page}.html`)
     .then(response => response.text())
-    .then(htmlString => 
+    .then(data => 
     {
-        const tempData = document.createElement('div');
-        const tempData.innerHTML = htmlString;
+        tempData.innerHTML = data;
         const tableData = tempData.querySelector(tableID);
         if (tableElement) 
             {
@@ -184,6 +186,7 @@ function renderTable(page, tableID)
             {
             console.error('Requested table not found:', tableID); //console log error for error handling
             }
+        console.log('Table Rendered!'); //console log output for status
     })
     .catch(error => 
     {
