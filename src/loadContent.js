@@ -79,10 +79,13 @@ function eventListeners()
         {
             tableButton.addEventListener('click', function(event)
             {
+                console.log('User List Button Has Been Clicked.....................')
                 event.preventDefault();
-                const table = tableButton.getAttribute('target');
                 const page = tableButton.getAttribute('data-page');
-                renderTable(page, table)
+                console.log('User List Button:', page);
+                fetchContent(page);
+                updateActiveTab(page);
+                updateHistory(page);
             });
         });
         console.log('Listeners Added!'); //console log output for status 
@@ -165,7 +168,7 @@ function getLinkPage(link)
     return linkPath;
 }
 
-//------------------------------------------------------------------FUNCTION TO RENDER TABLES--------------------------------------------------------------------
+/*------------------------------------------------------------------FUNCTION TO RENDER TABLES--------------------------------------------------------------------
 function renderTable(page, tableID) 
 {
     console.log('.......................Rendering Table.......................'); //console log output for status
@@ -196,4 +199,4 @@ function renderTable(page, tableID)
             tableElement.classList.remove('loading');
             }
     });
-} 
+} */

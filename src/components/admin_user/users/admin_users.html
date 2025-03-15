@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<!--TODO: combined different user pages into one, currently they are used to see formatting for now.-->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,15 +17,15 @@
     <div class="main-content">
         <!-- Side Buttons Container-->
         <div class="button-container mt-5 d-flex flex-column">
-            <a id="users-button" class="btn-page btn-primary" href="/src/components/admin_user/users_patient.html" role="button" data-page="admin_user/users_patient">Patients</a>
-            <a id="users-button" class="btn-page btn-primary" href="/src/components/admin_user/users_personnel.html" role="button" data-page="admin_user/users_personnel">Personnel</a>
-            <a id="users-button" class="btn-page btn-primary" href="/src/components/admin_user/users_admin.html" role="button" data-page="admin_user/users_admin">Admin</a>
+            <a class="table-btn btn-primary" role="button" href="/src/components/admin_user/users/patient_users.html" data-page="admin_user/users/patient_users">Patients</a>
+            <a class="table-btn btn-primary" role="button" href="/src/components/admin_user/users/personnel_users.html" data-page="admin_user/users/personnel_users">Personnel</a>
+            <a class="table-btn btn-primary" role="button" href="/src/components/admin_user/users/admin_users.html" data-page="admin_user/users/admin_users">Admin</a>
         </div>
         <div class="users-container mt-5"> <!--mt-5: larger top margin-->
             <div class="card">
                 <div class="card-body d-flex flex-column"> <!--Makes card customizable-->
                     <div class="document-content">
-                    <h1 class="card-title">Personnel Users</h1>
+                    <h1 class="card-title">Admin Users</h1>
                     <!--Table List Container-->
                     <table class="table">
                         <thead>
