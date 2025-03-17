@@ -26,22 +26,18 @@ function loadContent(userHeader)
             }
         console.log('Header Loaded!'); //console log output for error checking
         console.log(''); //console log output for status
-        //------------------------------------------------------Sets Active Tab & Begins Event Listening-------------------------------------------------------------------------
+        //------------------------------------------------------Sets Active Tab & Begins Event Listening for Navbar-------------------------------------------------------------------------
         const currentPage = (history.state && history.state.page) || getPage(); //page = history if state history != null, otherwise = output from getPage
         updateActiveTab(currentPage);
-        eventListeners();
+        navbarListeners();
     }) 
     .catch(error => 
         {
             console.error('There was a problem with the fetch operation:', error); //console log error for error handling
-        });
+        });    
 }
-
-//-------------------------------------------------------------------FUNCTION FOR EVENT LISTENERS---------------------------------------------------------------------------------
-function eventListeners()
-{
-    console.log('.......................Adding Listeners.......................'); //console log output for status
-    console.log(''); //console log output for status
+// ---------------------------------------------------------FUNCTION TO LOAD HEADER & NAVBAR LISTENERS--------------------------------------------------------------------
+function navbarListeners() {
     console.log('Adding Navigation Event Listeners.......................'); //console log output for status
     //---------------------------------------------------------Event Listener for Page Navigation Links--------------------------------------------------------------------
     document.querySelectorAll('.nav-link').forEach(link => 
@@ -56,27 +52,31 @@ function eventListeners()
             });
         });
 
-        //------------------------------------------------------Event Listener for 'Profile' Page Button-------------------------------------------------------------
-        console.log('Adding Profile Event Listener.......................'); //console log output for status
-        const profileButton = document.getElementById('profile-button');
-        if(profileButton)
-            {
-                console.log('Profile Event Listener Added!'); //console log output for status
-                profileButton.addEventListener('click', function(event)
-                {
-                    event.preventDefault();
-                    const page = profileButton.getAttribute('data-page');
-                    console.log('profile page', page); //console log output for error checking
-                    fetchContent(page);
-                    updateActiveTab(page);
-                    updateHistory(page);
-                });
-            }
-
-        //-----------------------------------------------------Event Listener for Admin 'Users' Page Buttons-------------------------------------------------------------
-        console.log('Adding Users List Button Event Listeners.......................'); //console log output for status
-        document.querySelectorAll('.table-btn').forEach(tableButton =>
+    //------------------------------------------------------Event Listener for 'Profile' Page Button-------------------------------------------------------------
+    console.log('Adding Profile Event Listener.......................'); //console log output for status
+    const profileButton = document.getElementById('profile-button');
+    if(profileButton)
         {
+            console.log('Profile Event Listener Added!'); //console log output for status
+            profileButton.addEventListener('click', function(event)
+            {
+                event.preventDefault();
+                const page = profileButton.getAttribute('data-page');
+                console.log('profile page', page); //console log output for error checking
+                fetchContent(page);
+                updateActiveTab(page);
+                updateHistory(page);
+            });
+        }
+}
+
+//----------------------------------------------------------FUNCTION TO LOAD OTHER EVENT LISTENERS---------------------------------------------------------------------------------
+function eventListeners()
+{
+    //--------------------------------------------------Event Listener for Admin 'Users' Page Buttons-------------------------------------------------------------
+    console.log('Adding Users List Button Event Listeners.......................'); //console log output for status
+    document.querySelectorAll('.table-btn').forEach(tableButton =>
+    {
             tableButton.addEventListener('click', function(event)
             {
                 console.log('User List Button Has Been Clicked.....................')
@@ -87,14 +87,15 @@ function eventListeners()
                 updateActiveTab(page);
                 updateHistory(page);
             });
-        });
-        console.log('Listeners Added!'); //console log output for status 
-        console.log(''); //console log output for status
+    });
+    console.log('Listeners Added!'); //console log output for status 
+    console.log(''); //console log output for status
 }
 
 //----------------------------------------------------------------FUNCTION TO FETCH AND LOAD CONTENT-------------------------------------------------------------
 function fetchContent(page) 
 {
+    console.clear(); //used to simplify previous logs so I could focus on these logs for error checking
     console.log('Fetching Content.......................'); //console log output for status
     const contentElement = document.getElementById('content');
     fetch(`/src/components/${page}.html`)
@@ -105,7 +106,9 @@ function fetchContent(page)
             {
                 contentElement.innerHTML = data;
                 console.log('Content Loaded!'); //console log output for status
-                contentElement.classList.remove('loading');
+                console.log(''); //console log output for status
+                contentElement.classList.remove('loading');        
+                eventListeners();                                     
             }
     })
     .catch(error => 
@@ -113,10 +116,10 @@ function fetchContent(page)
         console.error('There was a problem with the fetch operation:', error); //console log error for error handling
     });
 }
-
 //---------------------------------------------------------------FUNCTION TO UPDATE ACTIVE TAB STATUS--------------------------------------------------------------------
 function updateActiveTab(page)
 {
+    //TODO: need to fix some bugs
     console.log('.......................Updating Active Tab.......................'); //console log output for status
     console.log(''); //console log output for status
     document.querySelectorAll('.nav-link').forEach(link => 
@@ -144,13 +147,14 @@ function updateActiveTab(page)
 //---------------------------------------------------------------FUNCTION TO UPDATE HISTORY ATTRIBUTE--------------------------------------------------------------------
 function updateHistory(page)
 {
+    //TODO: need to fix some bugs
     console.log('.......................Updating Page History.......................'); //console log output for status
     history.pushState({ page: page},'', `/${page}.html`);
     console.log('Page History Updated!'); //console log output for status
 }
 
 //------------------------------------------------------------------FUNCTION TO GET CURRENT PAGE--------------------------------------------------------------------
-function getPage() //TODO: Fix this function to return the path with the folder that the html page is in instead of just the html file name
+function getPage() 
 {
     console.log('Getting Window Page.......................'); //console log output for status
     const pathParts = window.location.pathname.split('/');
@@ -167,6 +171,8 @@ function getLinkPage(link)
     console.log('Path:', linkPath); //console log output for status
     return linkPath;
 }
+
+//keeping this here for future use
 
 /*------------------------------------------------------------------FUNCTION TO RENDER TABLES--------------------------------------------------------------------
 function renderTable(page, tableID) 
