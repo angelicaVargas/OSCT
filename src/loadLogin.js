@@ -41,7 +41,7 @@ fetch('/src/components/login.html')
     .catch(error => 
         {
         console.error('Error when attempting to load login form:', error);
-        });
+        });          
 }
 
 // --------------------------------------------------------------------FUNCTION TO LOAD INITIAL CONTENT--------------------------------------------------------------------
@@ -54,6 +54,7 @@ function loadInitContent(page, userHeader)
     if(headerElement.innerHTML.trim() === "")
         {
             loadContent(userHeader);
+            
         }
     fetch(page)
     .then(response => response.text())
