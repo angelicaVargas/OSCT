@@ -84,6 +84,23 @@ function eventListeners()
                 const page = tableButton.getAttribute('data-page');
                 console.log('User List Button:', page);
                 fetchContent(page);
+                updateHistory(page);
+            });
+    });
+    console.log('Listeners Added!'); //console log output for status 
+    console.log(''); //console log output for status
+
+    //--------------------------------------------------Event Listener for Listed Users-------------------------------------------------------------
+    console.log('Adding Listed Users Event Listeners.......................'); //console log output for status
+    document.querySelectorAll('.listed-user').forEach(user =>
+    {
+            user.addEventListener('click', function(event)
+            {
+                console.log('User List Button Has Been Clicked.....................')
+                event.preventDefault();
+                const page = user.getAttribute('data-page');
+                console.log('User List Button:', page);
+                fetchContent(page);
                 updateActiveTab(page);
                 updateHistory(page);
             });
