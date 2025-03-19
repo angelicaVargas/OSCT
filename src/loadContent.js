@@ -96,10 +96,10 @@ function eventListeners()
     {
             user.addEventListener('click', function(event)
             {
-                console.log('User List Button Has Been Clicked.....................')
+                console.log('Listed User Has Been Clicked.....................')
                 event.preventDefault();
                 const page = user.getAttribute('data-page');
-                console.log('User List Button:', page);
+                console.log('Listed User Profile:', page);
                 fetchContent(page);
                 updateActiveTab(page);
                 updateHistory(page);
@@ -107,12 +107,31 @@ function eventListeners()
     });
     console.log('Listeners Added!'); //console log output for status 
     console.log(''); //console log output for status
+
+    //------------------------------------------------------Event Listener for 'Back' Page Button-------------------------------------------------------------
+    console.log('Adding Back Button Event Listener.......................'); //console log output for status
+    const backButton = document.getElementById('back-btn');
+    if(backButton)
+        {
+            console.log('Back Button Event Listener Added!'); //console log output for status
+            backButton.addEventListener('click', function(event)
+            {
+                event.preventDefault();
+                const page = backButton.getAttribute('data-page');
+                console.log('go back page', page); //console log output for error checking
+                fetchContent(page);
+                updateActiveTab(page);
+                updateHistory(page);
+            });
+        }
+    console.log('Listeners Added!'); //console log output for status 
+    console.log(''); //console log output for status
 }
 
 //----------------------------------------------------------------FUNCTION TO FETCH AND LOAD CONTENT-------------------------------------------------------------
 function fetchContent(page) 
 {
-    console.clear(); //used to simplify previous logs so I could focus on these logs for error checking
+    //console.clear(); //used to simplify previous logs so I could focus on these logs for error checking
     console.log('Fetching Content.......................'); //console log output for status
     const contentElement = document.getElementById('content');
     fetch(`/src/components/${page}.html`)
@@ -167,7 +186,7 @@ function updateHistory(page)
     //TODO: need to fix some bugs
     console.log('.......................Updating Page History.......................'); //console log output for status
     history.pushState({ page: page},'', `/${page}.html`);
-    console.log('Page History Updated!'); //console log output for status
+    console.log('Page History Updated!', history.state); //console log output for status
 }
 
 //------------------------------------------------------------------FUNCTION TO GET CURRENT PAGE--------------------------------------------------------------------
@@ -175,7 +194,9 @@ function getPage()
 {
     console.log('Getting Window Page.......................'); //console log output for status
     const pathParts = window.location.pathname.split('/');
+    console.log('pathParts', pathParts);
     const lastPart = pathParts.pop();
+    console.log('lastPart', lastPart);
     console.log('Done!'); //console log output for status
     return lastPart ? lastPart.split('.').shift() : 'home';
 }
