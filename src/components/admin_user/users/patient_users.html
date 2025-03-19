@@ -16,7 +16,7 @@
                     <div class="document-content">
                     <h1 class="card-title">Patient Users</h1>
                     <!--Table List Container-->
-                    <table class="table">
+                    <table class="table table-hover">
                         <thead>
                           <tr>
                             <th>ID Number</th>
@@ -26,19 +26,19 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
+                          <tr class="listed-user" href="/src/components/admin_user/users/patient_profile.html" data-page="admin_user/users/patient_profile">
                             <td>xxxxxxxxx</td>
                             <td>Alice</td>
                             <td>Kent</td>
                             <td>Patient</td>
                           </tr>
-                          <tr>
+                          <tr class="listed-user" href="/src/components/admin_user/users/patient_profile.html" data-page="admin_user/users/patient_profile">
                             <td>xxxxxxxxx</td>
                             <td>Bob</td>
                             <td>McClerk</td>
                             <td>Patient</td>
                           </tr>
-                          <tr>
+                          <tr class="listed-user" href="/src/components/admin_user/users/patient_profile.html" data-page="admin_user/users/patient_profile">
                             <td>xxxxxxxxx</td>
                             <td>Ramona</td>
                             <td>Kimberk</td>
@@ -106,6 +106,9 @@
     }
     .table{
         align-items:center;
+        margin-bottom:0px;
+        --bs-table-bg:#F2F2F2;
+        --bs-table-border-color:#000;
     }
     .td a{
         display:flex;
