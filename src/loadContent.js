@@ -108,6 +108,23 @@ function eventListeners()
     console.log('Listeners Added!'); //console log output for status 
     console.log(''); //console log output for status
 
+    //--------------------------------------------------Event Listener for Patient Profile Records Buttons-------------------------------------------------------------
+    console.log('Adding Patient Profile Records Buttons Event Listeners.......................'); //console log output for status
+    document.querySelectorAll('.record-btn').forEach(recordButton =>
+    {
+            recordButton.addEventListener('click', function(event)
+            {
+                console.log('Patient Profile Record Button Has Been Clicked.....................')
+                event.preventDefault();
+                const page = recordButton.getAttribute('data-page');
+                console.log('Record Button:', page);
+                fetchContent(page);
+                updateHistory(page);
+            });
+    });
+    console.log('Listeners Added!'); //console log output for status 
+    console.log(''); //console log output for status
+
     //------------------------------------------------------Event Listener for 'Back' Page Button-------------------------------------------------------------
     console.log('Adding Back Button Event Listener.......................'); //console log output for status
     const backButton = document.getElementById('back-btn');
