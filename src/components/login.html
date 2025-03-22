@@ -22,6 +22,12 @@
                 <input type="password" class="form-control" id="password" aria-label="Password" placeholder="Password">
               </div>
               <button type="submit" class="btn btn-primary">Sign In</button>
+              <div class="signUp-container">
+                <p>
+                  Need an account?
+                  <a id="signUp-btn" class="btn-signUp" href="/src/components/patient_user/sign_up.html" data-page="patient_user/sign_up">SIGN UP</a>
+                </p>
+              </div>
           </form>
         </div>
       </div>
@@ -136,6 +142,12 @@
     width:25vw;
     max-width: 25%;
     height: auto;
+}
+  .signUp-container {
+    margin-top:1rem;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
 }
 </style>
 </html>
