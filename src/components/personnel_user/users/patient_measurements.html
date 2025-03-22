@@ -7,52 +7,54 @@
         <div class="profile-container mt-5"> <!--mt-5: larger top margin-->
             <div class="card">
                 <div class="top-buttons d-flex flex-row align-self-center">
-                    <button id="back-btn" class="btn-back" href="/src/components/personnel_user/users.html" data-page="personnel_user/users">&lt; Go Back</button>
-                    <button class="btn-edit">[Edit Information]</button>
+                    <button id="back-btn" class="btn-back" href="/src/components/admin_user/users/patient_users.html" data-page="admin_user/users/patient_users">&lt; Go Back</button>
+                    <button class="btn-edit">[Update Measurements]</button>
                 </div>
-                <div class="card-body d-flex flex-column align-self-center"> <!--Makes card customizable-->
-                    <h1 class="card-title">Patient Name</h1>
-                    <div class="information-container d-flex flex-column align-items-left">
-                        <h2 class="container-header">Patient Information</h2>
+                <div class="card-body d-flex flex-column align-self-center align-items-left"> <!--Makes card customizable-->
+                    <h1 class="card-title">Patient Measurements</h1>
+                    <div class="measurements-container d-flex flex-column align-items-left">
                         <table class="info-table">
                             <tr>
-                                <td><strong>Patient ID</strong></td>
-                                <td>xxxxxxxxxx</td>
+                                <td><strong>Waist:</strong></td>
+                                <td>xxx cm</td>
                             </tr>
                             <tr>
-                                <td><strong>Name of School</strong></td>
-                                <td>School Name</td>
+                                <td><strong>Hip:</strong></td>
+                                <td>xxx cm</td>
                             </tr>
                             <tr>
-                                <td><strong>DOB</strong></td>
-                                <td>Month/Day/Year</td>
+                                <td><strong>Waist to Hip Ratio:</strong></td>
+                                <td>###</td>
                             </tr>
                             <tr>
-                                <td><strong>Gender</strong></td>
-                                <td>Male/Female</td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div class="contact-container d-flex flex-column align-items-left">
-                        <h2 class="container-header">Contact Information</h2>
-                        <table class="info-table">
-                            <tr>
-                                <td><strong>Legal Guardian</strong></td>
-                                <td>Name of Legal Guardian</td>
+                                <td><strong>Body Mass:</strong></td>
+                                <td>###</td>
                             </tr>
                             <tr>
-                                <td><strong>Phone #</strong></td>
-                                <td>(xxx)xxx-xxxx</td>
+                                <td><strong>Cholesterol:</strong></td>
+                                <td>x mg/dL</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Glucose Level:</strong></td>
+                                <td>x mg/dL</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Hemoglobin:</strong></td>
+                                <td>xxx %</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Triglycerides:</strong></td>
+                                <td>x mg/dL</td>
                             </tr>
                         </table>
                     </div>
                 </div>
             </div>
             <div class="button-container mt-5 d-flex flex-column">      
-                <a class="record-btn btn-primary" role="button" href="/src/components/personnel_user/users/patient_profile.html" data-page="personnel_user/users/patient_profile">Patient Profile</a>
-                <a class="record-btn btn-primary" role="button" href="/src/components/personnel_user/users/patient_measurements.html" data-page="personnel_user/users/patient_measurements">Measurements</a>
-                <a class="record-btn btn-primary" role="button" href="/src/components/personnel_user/users/patient_documents.html" data-page="personnel_user/users/patient_documents">Documents</a>
-                <a class="record-btn btn-primary" role="button" href="/src/components/personnel_user/users/patient_labResults.html" data-page="personnel_user/users/patient_labResults">Lab Results</a>
+                <a class="record-btn btn-primary" role="button" href="/src/components/admin_user/users/patient_profile.html" data-page="admin_user/users/patient_profile">Patient Profile</a>
+                <a class="record-btn btn-primary" role="button" href="/src/components/admin_user/users/patient_measurements.html" data-page="admin_user/users/patient_measurements">Measurements</a>
+                <a class="record-btn btn-primary" role="button" href="/src/components/admin_user/users/patient_documents.html" data-page="admin_user/users/patient_documents">Documents</a>
+                <a class="record-btn btn-primary" role="button" href="/src/components/admin_user/users/patient_labResults.html" data-page="admin_user/users/patient_labResults">Lab Results</a>
             </div>
         </div>
     </div>
@@ -90,6 +92,7 @@
         padding-top:0.625rem;
         display:flex;
         flex-direction:column;
+        width:29rem;
     }
     .card-title {
         font-size:2rem;
@@ -102,27 +105,28 @@
         padding-left:0.875rem;
         padding-top:0.875rem;
     }
-    .information-container {
+    .measurments-container {
         margin-top:0.75rem;
-        width:28.063rem;
+        width:26.688rem;
         height:10.25rem;
         border-radius:0.375rem;
         border:0.063rem solid rgba(0, 0, 0, 0.30);
         background:#FFF;
-    }
-    .contact-container {
-        margin-top:0.938rem;
-        width:28.063rem;
-        height:6.688rem;
-        border-radius:0.375rem;
-        border:0.063rem solid rgba(0, 0, 0, 0.30);
-        background:#FFF;
+        display:flex;
+        justify-content: left;
+        align-items: left;
     }
     .info-table {
-        margin-left:0.875rem;
         color:#000000;
         font-size:1rem;
         font-weight:400;
+    }
+    .td {
+        border-radius: 6px;
+        border-color:#000;
+        border-style: solid;
+        background: #FFF;
+        border-width: 1px;
     }
     .btn-back {
         position:absolute;
