@@ -143,6 +143,24 @@ function eventListeners()
         }
     console.log('Listeners Added!'); //console log output for status 
     console.log(''); //console log output for status
+
+    //------------------------------------------------------Event Listener for Add User Button-------------------------------------------------------------
+    console.log('Adding Add User Event Listener.......................'); //console log output for status
+    const addButton = document.getElementById('add-btn');
+    if(addButton)
+        {
+            console.log('Add User Event Listener Added!'); //console log output for status
+            addButton.addEventListener('click', function(event)
+            {
+                event.preventDefault();
+                const page = addButton.getAttribute('data-page');
+                fetchContent(page);
+                updateActiveTab(page);
+                updateHistory(page);
+            });
+        }
+    console.log('Listeners Added!'); //console log output for status 
+    console.log(''); //console log output for status
 }
 
 //----------------------------------------------------------------FUNCTION TO FETCH AND LOAD CONTENT-------------------------------------------------------------
