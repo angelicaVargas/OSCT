@@ -12,6 +12,19 @@ fetch('/src/components/login.html')
             loginElement.innerHTML = data;
             }
         console.log('Login Page Loaded!'); //console log output for status
+        //---------------------------------------------------------Event Listener for SignUp Button--------------------------------------------------------------------
+        const signUpButton = document.getElementById('signUp-btn');
+        if(signUpButton)
+            {
+                console.log('Sign Up Event Listener Added!'); //console log output for status
+                signUpButton.addEventListener('click', function(event)
+                {
+                    event.preventDefault();
+                    const page = signUpButton.getAttribute('data-page');
+                    //TODO: Function call to load sign up page onto the login page
+                    loadSignUp(page)
+                });
+            }
         //---------------------------------------------------------Event Listener for Submit Button--------------------------------------------------------------------
         document.getElementById('login').addEventListener('submit', function(event)
         {
@@ -69,6 +82,23 @@ function loadInitContent(page, userHeader)
     {
         console.error('Error when attempting to load initial content:', error); //console log error for error handling
     });
+}
+// --------------------------------------------------------------------FUNCTION TO LOAD SIGN UP PAGE CONTENT--------------------------------------------------------------------
+//TODO: Make Function to load sign up page onto the login page
+function loadSignUp(page)
+{
+    fetch(page)
+    .then(response => response.text())
+    .then(data => 
+        {
+        console.log('Loading SignUp Page.......................'); //console log output for status
+        const loginElement = document.getElementById('login-page');
+        if (loginElement) 
+            {
+            loginElement.innerHTML = data;
+            }
+        console.log('SignUP Page Loaded!'); //console log output for status
+        })
 }
 loadLogin();
 
