@@ -21,8 +21,9 @@ fetch('/src/components/login.html')
                 {
                     event.preventDefault();
                     const page = signUpButton.getAttribute('data-page');
+                    console.log('signup page:', page);
                     //TODO: Function call to load sign up page onto the login page
-                    loadSignUp(page)
+                    loadSignUp(page);
                 });
             }
         //---------------------------------------------------------Event Listener for Submit Button--------------------------------------------------------------------
@@ -67,7 +68,6 @@ function loadInitContent(page, userHeader)
     if(headerElement.innerHTML.trim() === "")
         {
             loadContent(userHeader);
-            
         }
     fetch(page)
     .then(response => response.text())
@@ -90,15 +90,34 @@ function loadSignUp(page)
     fetch(page)
     .then(response => response.text())
     .then(data => 
-        {
-        console.log('Loading SignUp Page.......................'); //console log output for status
+    {
         const loginElement = document.getElementById('login-page');
-        if (loginElement) 
+        loginElement.innerHTML = '';
+        console.log('Loading SignUp Page.......................'); //console log output for status
+        const signUpElement = document.getElementById('signUp-page');
+        if (signUpElement) 
             {
-            loginElement.innerHTML = data;
+            signUpElement.innerHTML = data;
             }
-        console.log('SignUP Page Loaded!'); //console log output for status
-        })
+        console.log('Sign In Page Loaded!'); //console log output for status
+        const signInButton = document.getElementById('signIn-btn');
+        if(signInButton)
+            {
+                console.log('Sign In Event Listener Added!'); //console log output for status
+                signInButton.addEventListener('click', function(event)
+                {
+                    event.preventDefault();
+                    //TODO: Function call to load sign up page onto the login page
+                    signUpElement.innerHTML = '';
+                    console.log('Loading Sign In Page.......................');
+                    loadLogin();
+                });
+            }
+    })
+    .catch(error => 
+        {
+            console.error('Error when attempting to load signup page:', error); //console log error for error handling
+        });
 }
 loadLogin();
 
