@@ -1,44 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+<!--Login Page-->
 <body>
-<div class="login-container"> <!--Login Content Container-->
-  <div class="card">
-    <div class="card-body d-flex flex-column"> <!--Makes card customizable-->
-      <div class="login-content"> <!--Everything in the Login Card Section-->
-        <div class="logo">
-          <div class="media">
-            <img src="/src/assets/img/colimaGobiernoDelEstado.png" alt="logo">
+  <div class="page-content">
+    <div class="login-container"> <!--Login Content Container-->
+      <div class="card">
+        <div class="card-body d-flex flex-column">
+          <div class="login-content">
+            <div class="logo">
+              <div class="media">
+                <img src="/src/assets/img/colimaGobiernoDelEstado.png" alt="logo">
+              </div>
+            </div>
+            <h1 class="card-title">Sign In</h1>
+            <div class="login-form">
+              <form id="login">
+                  <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" id="username" aria-label="Username" placeholder="Username">
+                  </div>
+                  <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" aria-label="Password" placeholder="Password">
+                  </div>
+                  <button type="submit" class="btn btn-primary">Sign In</button>
+                  <div class="signUp-container">
+                    <p>
+                      Need an account?
+                      <a id="signUp-btn" class="btn-signUp" href="/src/components/patient_user/sign_up.html" data-page="/src/components/patient_user/sign_up.html">Create one here</a>
+                    </p>
+                  </div>
+              </form>
+            </div>
           </div>
-        </div>
-        <h1 class="card-title">Sign In</h1>
-        <div class="login-form">
-          <form id="login">
-              <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" class="form-control" id="username" aria-label="Username" placeholder="Username">
-              </div>
-              <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" class="form-control" id="password" aria-label="Password" placeholder="Password">
-              </div>
-              <button type="submit" class="btn btn-primary">Sign In</button>
-              <div class="signUp-container">
-                <p>
-                  Need an account?
-                  <a id="signUp-btn" class="btn-signUp" href="/src/components/patient_user/sign_up.html" data-page="patient_user/sign_up">SIGN UP</a>
-                </p>
-              </div>
-          </form>
         </div>
       </div>
     </div>
   </div>
-</div>
-
     <script src="/src/loadLogin.js"></script>
     <script type="module" src="/src/main.js"></script>
 </body>
 <style>
+  .page-content {
+    background:#F9F9F9;
+  }
   .login-container {
     width: 100%;
     display:flex;
@@ -47,9 +52,8 @@
     min-height: 100vh;
   }
   .card {
-    background-color:#F2F2F2;
-    width: 507px;
-    height: 541px;
+    width: 500px;
+    height: 540px;
     flex-shrink: 0;
     border-radius: 14px;
     border: 1px solid rgba(0, 0, 0, 0.20);
