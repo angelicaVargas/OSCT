@@ -1,0 +1,16 @@
+{
+    "data": [
+        {
+            "id" : "xxxxxxxxxx",
+            "school" : "School Name",
+            "DOB" : "Month/Day/Year",
+            "gender" : "Male/Female"
+        }
+    ],
+    "keys": [
+        "Patient ID",
+        "Name of School",
+        "DOB",
+        "Gender"
+    ]
+}

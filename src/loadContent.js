@@ -162,29 +162,52 @@ function eventListeners()
     console.log('Listeners Added!'); //console log output for status 
     console.log(''); //console log output for status
 }
+//----------------------------------------------------------------FUNCTION TO LOAD PROFILE TABLE-------------------------------------------------------------
+function getProfileTable(keys, data, table)
+{
+    let rows = "";
+    for(i = 0; i < data.length; i++)
+        {
+            j = 0;
+            for(let item in data[i])
+            {
+                let row = "<tr>";
+                row += `<th>${keys[j]}</th>
+                    <td>${data[i][item]}</td>
+                    </tr>`;
+                rows += row;
+                j++
+            }
+        }
+    table.innerHTML = rows;
+}
 //----------------------------------------------------------------FUNCTION TO LOAD TABLE HEADER-------------------------------------------------------------
-function getHead(){ //loads in the header row of the table
-    const table = document.getElementById('Table');
+function getHead(table){ //loads in the header row of the table
     const tableData = table.getAttribute('table-data');
     fetch(`${tableData}`)
     .then(response => {
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         } 
-        //console.log('response',response.text());
         response.json().then(result=>
         {
-        console.log('result:', result);
         const column = result.keys;
         const header = document.querySelector('thead');
-        let rows = "<tr>";
-        for(i = 0; i < column.length; i++)
+        if(header)
         {
-            rows += `<th>${column[i]}</th>`;
+            let rows = "<tr>";
+            for(i = 0; i < column.length; i++)
+            {
+                rows += `<th>${column[i]}</th>`;
+            }
+            rows += "</tr>";
+            header.innerHTML = rows;
+            getBody(result.data); //loads in the body rows of the table
         }
-        rows += "</tr>";
-        header.innerHTML = rows;
-        getBody(result.data); //loads in the body rows of the table
+        else
+        {
+            getProfileTable(result.keys, result.data, table);
+        }
         });
     })  
     .catch(error => 
@@ -201,7 +224,8 @@ function getBody(data)
     for(i = 0; i < data.length; i++)
         {
             let row = "<tr>";
-            for(let item in data[i]){
+            for(let item in data[i])
+            {
                 row += `<td>${data[i][item]}</td>`;
             }
             row += "</tr>";
@@ -225,8 +249,12 @@ function fetchContent(page)
                 contentElement.innerHTML = data;
                 if(contentElement.querySelector('table'))
                 {
-                    console.log('Loading Table...');
-                    getHead();
+                    contentElement.querySelectorAll('table').forEach(table => 
+                    {
+                        console.log('Loading Table...');
+                        getHead(table);
+                        console.log('Table Loaded!');
+                    });
                 }
                 console.log('Content Loaded!'); //console log output for status
                 console.log(''); //console log output for status
@@ -297,38 +325,3 @@ function getLinkPage(link)
     console.log('Path:', linkPath); //console log output for status
     return linkPath;
 }
-
-//keeping this here for future use
-
-/*------------------------------------------------------------------FUNCTION TO RENDER TABLES--------------------------------------------------------------------
-function renderTable(page, tableID) 
-{
-    console.log('.......................Rendering Table.......................'); //console log output for status
-    const tableElement = document.getElementsById('table');
-    const tempData = document.createElement('div');
-    fetch(`/src/components/${page}.html`)
-    .then(response => response.text())
-    .then(data => 
-    {
-        tempData.innerHTML = data;
-        const tableData = tempData.querySelector(tableID);
-        if (tableElement) 
-            {
-            tableElement.innerHTML = tableData.innerHTML;
-            tableElement.classList.remove('loading');
-            }
-        else 
-            {
-            console.error('Requested table not found:', tableID); //console log error for error handling
-            }
-        console.log('Table Rendered!'); //console log output for status
-    })
-    .catch(error => 
-    {
-        console.error('There was a problem with the fetch operation:', error); //console log error for error handling
-        if (tableElement) 
-            {
-            tableElement.classList.remove('loading');
-            }
-    });
-} */
