@@ -13,27 +13,9 @@
                         <div id="documentsTable"></div>
                         <!-- Example table to show until database is ready-->
                         <h2 class="table-title">Example List of Documents Table</h2>
-                        <table class="table">
-                            <thead>
-                              <tr>
-                                <th>Document Name</th>
-                                <th>Date Assigned</th>
-                                <th>Download Link</th>
-                              </tr>
-                            </thead>
-                            <tbody> <!-- id="function to load documents into table"-->
-                              <!-- Add functionality to pull documents from somewhere, database?-->
-                                <tr>
-                                    <td>Alice</td>
-                                    <td>Kent</td>
-                                    <td>Personnel</td>
-                                </tr>
-                                <tr>
-                                    <td>Alice</td>
-                                    <td>Kent</td>
-                                    <td>Personnel</td>
-                                </tr>
-                            </tbody>
+                        <table id="docTable" class="table" table-data="/src/components/docData.json">
+                            <thead></thead>
+                            <tbody></tbody>
                         </table>
                     </div>
                 </div>
@@ -41,6 +23,7 @@
         </div>
     </div>
     <script src="/src/loadContent.js"></script>
+    <script src="/src/components/docData.json"></script>
     <script type="module" src="/src/main.js"></script>
 </body>
 <style>

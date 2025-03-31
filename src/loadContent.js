@@ -162,6 +162,56 @@ function eventListeners()
     console.log('Listeners Added!'); //console log output for status 
     console.log(''); //console log output for status
 }
+//----------------------------------------------------------------FUNCTION TO LOAD TABLE HEADER-------------------------------------------------------------
+function getHead(){ //loads in the header row of the table
+    const table = document.getElementById('docTable');
+    const tableData = table.getAttribute('table-data');
+    //data = pull array from tableData file
+    //const column = Object.keys(data[0]);
+
+    //fetch json
+    // json.parse into variable
+    fetch(`/src/docData.json`)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        } 
+        //console.log('response',response.text());
+        response.json().then(result=>
+        {
+        console.log('result:', result);
+        const column = result.keys;
+        const header = document.querySelector('thead');
+        let rows = "<tr>";
+        for(i = 0; i < column.length; i++)
+        {
+            rows += `<th>${column[i]}</th>`;
+        }
+        rows += "</tr>";
+        header.innerHTML = rows;
+        getBody(result.data); //loads in the body rows of the table
+        });
+    })  
+    .catch(error => 
+    {
+        console.error('Failed to fetch table data', error);
+    });
+}
+//----------------------------------------------------------------FUNCTION TO LOAD TABLE BODY-------------------------------------------------------------
+function getBody(data)
+{
+    const body = document.querySelector('tbody');
+    let rows = "";
+    data.map(d=> 
+    {
+        rows += `<tr>
+            <td>${d.name}</td>
+            <td>${d.date}</td>
+            <td>${d.link}</td>
+            </tr>`;
+    })
+    body.innerHTML = rows;
+}
 
 //----------------------------------------------------------------FUNCTION TO FETCH AND LOAD CONTENT-------------------------------------------------------------
 function fetchContent(page) 
@@ -176,10 +226,16 @@ function fetchContent(page)
         if (contentElement) 
             {
                 contentElement.innerHTML = data;
+                if(contentElement.querySelector('table'))
+                {
+                    console.log('Loading Table...');
+                    getHead();
+                }
                 console.log('Content Loaded!'); //console log output for status
                 console.log(''); //console log output for status
                 contentElement.classList.remove('loading');        
-                eventListeners();                                     
+                eventListeners();  
+
             }
     })
     .catch(error => 
