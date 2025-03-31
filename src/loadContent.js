@@ -164,14 +164,9 @@ function eventListeners()
 }
 //----------------------------------------------------------------FUNCTION TO LOAD TABLE HEADER-------------------------------------------------------------
 function getHead(){ //loads in the header row of the table
-    const table = document.getElementById('docTable');
+    const table = document.getElementById('Table');
     const tableData = table.getAttribute('table-data');
-    //data = pull array from tableData file
-    //const column = Object.keys(data[0]);
-
-    //fetch json
-    // json.parse into variable
-    fetch(`/src/docData.json`)
+    fetch(`${tableData}`)
     .then(response => {
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
@@ -197,19 +192,21 @@ function getHead(){ //loads in the header row of the table
         console.error('Failed to fetch table data', error);
     });
 }
+
 //----------------------------------------------------------------FUNCTION TO LOAD TABLE BODY-------------------------------------------------------------
 function getBody(data)
 {
     const body = document.querySelector('tbody');
     let rows = "";
-    data.map(d=> 
-    {
-        rows += `<tr>
-            <td>${d.name}</td>
-            <td>${d.date}</td>
-            <td>${d.link}</td>
-            </tr>`;
-    })
+    for(i = 0; i < data.length; i++)
+        {
+            let row = "<tr>";
+            for(let item in data[i]){
+                row += `<td>${data[i][item]}</td>`;
+            }
+            row += "</tr>";
+            rows += row;
+        }
     body.innerHTML = rows;
 }
 
