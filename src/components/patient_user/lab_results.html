@@ -4,35 +4,15 @@
 <body>
     <div id="header"></div> 
     <div class="main-content">
-        <div class="labresults-container mt-5"> <!--mt-5: larger top margin-->
+        <div class="labresults-container mt-5">
             <div class="card">
-                <div class="card-body d-flex flex-column"> <!--Makes card customizable-->
+                <div class="card-body d-flex flex-column">
                     <div class="document-content">
                     <h1 class="card-title">Lab Results</h1>
-                    <div id="documentsTable"></div>
-                        <h2 class="table-title">Example List of Lab Results Table</h2>
-                        <!-- Example table to show until database is ready-->
-                        <table class="table">
-                            <thead>
-                              <tr>
-                                <th>Document Name</th>
-                                <th>Date Assigned</th>
-                                <th>Download Link</th>
-                              </tr>
-                            </thead>
-                            <tbody> <!-- id="function to load documents into table"-->
-                              <!-- Add functionality to pull documents from somewhere, database?-->
-                                <tr>
-                                    <td>Alice</td>
-                                    <td>Kent</td>
-                                    <td>Personnel</td>
-                                </tr>
-                                <tr>
-                                    <td>Alice</td>
-                                    <td>Kent</td>
-                                    <td>Personnel</td>
-                                </tr>
-                            </tbody>
+                        <h2 class="table-title">List of Available Lab Reports</h2>
+                        <table id="Table" class="table" table-data="/src/components/patient_user/labData.json">
+                            <thead></thead>
+                            <tbody></tbody>
                         </table>
                     </div>
                 </div>
@@ -40,34 +20,39 @@
         </div>
     </div>
     <script src="/src/loadContent.js"></script>
+    <script src="/src/components/patient_user/labData.json"></script>
     <script type="module" src="/src/main.js"></script>
 </body>
 <style>
     .main-content {
         display:flex;
         justify-content:center;
-        width: 100%;
+        width:100%;
         align-items:center;
-        min-height: 100vh;
+        min-height:100vh;
     }
     .labresults-container {
-        width: 70%;
+        width:70%;
     }
     .card {
         background-color:#F2F2F2;
-        height: 100%;
-        min-height: 100vh;
+        height:100%;
+        min-height:100vh;
     }
     .document-content{
-        margin-left:25px;
-        margin-right:25px;
+        margin-left:1.563rem;
+        margin-right:1.563rem;
     }
     .card-title {
-        font-size:32px;
-        font-weight: 500;
+        font-size:2rem;
+        font-weight:500;
         text-align:left;
-        margin-bottom:25px;
-        margin-top:25px;
+        margin-bottom:1.125rem;
+        margin-top:1.563rem;
+    }
+    .table-title{
+        font-size:1.25rem;
+        margin-bottom:1.563rem;
     }
     .table{
         margin-bottom:0px;
@@ -81,10 +66,6 @@
         align-items:center;
         justify-content:center;
         color:#000;
-    }
-    .table-title{
-        font-size: 20px;
-        margin-bottom:20px;
     }
 </style>
 </html>
