@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- Personnel User Header -->
 <body>
     <div class="container-fluid main-body">
         <div class="header-container d-flex flex-row"> 
@@ -12,12 +13,16 @@
                 <h1 class="project-title" style="font-size: 2rem; margin-bottom: 0;">OSCT</h1>
                 <h2 class="project-subtitle" style="font-size: 1.125rem; font-weight: 400;">Operación Salud Colima Tamizaje</h2>
             </div>
-            <!--Profile Button-->
-            <div class="user-container ms-auto">
-                <a id="profile-button" class="btn btn-light d-flex align-items-center" href="/src/components/personnel_user/profile.html" role="button" data-page="personnel_user/profile">
+            <!--Profile Button with Dropdown-->
+            <div class="user-container dropdown">
+                <a id="profile" class="btn btn-light d-flex align-items-center dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <img src="/src/assets/img/The_Donkey.JPEG" class="img-thumbnail rounded-circle me-2" alt="logo" width="45" height="45">
-                    <span class="user-text">Profile</span>
+                    <span class="user-text">Username</span>
                 </a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profile">
+                    <li><a class="dropdown-item" id="profile-button" href="#">View Profile</a></li>
+                    <li><a class="dropdown-item" id="signout-button" href="#">Sign Out</a></li>
+                </ul>
             </div>
         </div>
     </div>
@@ -46,6 +51,7 @@
         }
 
         .user-container {
+            display: flex;
             align-items: center;
             margin-left: auto;
             margin-right: 1rem;
@@ -59,8 +65,9 @@
         }
         .user-text {
             color: var(--dark-surface-three);
-            font-size: 1rem;
+            font-size: 1.15rem;
             font-weight: 600;
+            margin-right: 0.5rem;
         }
         .img-thumbnail{
             background: none;
@@ -68,6 +75,14 @@
             border-width: 0.0625rem;
             border-color: transparent;
             padding: 0.2rem;
+        }
+        .dropdown-menu {
+            font-size: 1.15rem;
+        }
+        .dropdown-item {
+            width: 100%;
+            min-width: 12rem;
+            height: 2.5rem;
         }
 
 /* Navigation Bar */
