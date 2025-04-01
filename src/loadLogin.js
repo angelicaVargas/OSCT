@@ -144,4 +144,3 @@ function loadSignUp(page)
         });
 }
 loadLogin();
-
