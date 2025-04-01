@@ -1,0 +1,28 @@
+{
+    "data": [
+        {
+            "id" : "xxxxxxxxxx",
+            "firstName" : "Alice",
+            "lastName" : "Kent",
+            "userType" : "Patient"
+        },
+        {
+            "id" : "xxxxxxxxxx",
+            "firstName" : "Bob",
+            "lastName" : "McClerk",
+            "userType" : "Patient"
+        },
+        {
+            "id" : "xxxxxxxxxx",
+            "firstName" : "Ramona",
+            "lastName" : "Kimberk",
+            "userType" : "Patient"
+        }
+    ],
+    "keys": [
+        "ID Number",
+        "First Name",
+        "Last Name",
+        "User Type"
+    ]
+}

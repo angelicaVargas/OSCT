@@ -86,7 +86,6 @@ function navbarListeners() {
         });
     }
 }
-
 //----------------------------------------------------------FUNCTION TO LOAD OTHER EVENT LISTENERS---------------------------------------------------------------------------------
 function eventListeners()
 {
@@ -105,9 +104,7 @@ function eventListeners()
             });
     });
     console.log('Listeners Added!'); //console log output for status 
-    console.log(''); //console log output for status
-
-    //--------------------------------------------------Event Listener for Listed Users-------------------------------------------------------------
+//--------------------------------------------------Event Listener for Listed Users-------------------------------------------------------------
     console.log('Adding Listed Users Event Listeners.......................'); //console log output for status
     document.querySelectorAll('.listed-user').forEach(user =>
     {
@@ -123,9 +120,7 @@ function eventListeners()
             });
     });
     console.log('Listeners Added!'); //console log output for status 
-    console.log(''); //console log output for status
-
-    //--------------------------------------------------Event Listener for Patient Profile Records Buttons-------------------------------------------------------------
+//--------------------------------------------------Event Listener for Patient Profile Records Buttons-------------------------------------------------------------
     console.log('Adding Patient Profile Records Buttons Event Listeners.......................'); //console log output for status
     document.querySelectorAll('.record-btn').forEach(recordButton =>
     {
@@ -140,9 +135,7 @@ function eventListeners()
             });
     });
     console.log('Listeners Added!'); //console log output for status 
-    console.log(''); //console log output for status
-
-    //------------------------------------------------------Event Listener for 'Back' Page Button-------------------------------------------------------------
+//------------------------------------------------------Event Listener for 'Back' Page Button-------------------------------------------------------------
     console.log('Adding Back Button Event Listener.......................'); //console log output for status
     const backButton = document.getElementById('back-btn');
     if(backButton)
@@ -159,9 +152,7 @@ function eventListeners()
             });
         }
     console.log('Listeners Added!'); //console log output for status 
-    console.log(''); //console log output for status
-
-    //------------------------------------------------------Event Listener for Add User Button-------------------------------------------------------------
+//------------------------------------------------------Event Listener for Add User Button-------------------------------------------------------------
     console.log('Adding Add User Event Listener.......................'); //console log output for status
     const addButton = document.getElementById('add-btn');
     if(addButton)
@@ -177,7 +168,25 @@ function eventListeners()
             });
         }
     console.log('Listeners Added!'); //console log output for status 
-    console.log(''); //console log output for status
+}
+//----------------------------------------------------------------FUNCTION TO LOAD USERS TABLE-------------------------------------------------------------
+function getUsersBody(data, body)
+{
+    const ref = body.getAttribute('href');
+    const page = body.getAttribute('data-page');
+    let rows = "";
+    for(i = 0; i < data.length; i++)
+        {
+            let row = `<tr class="listed-user" href="${ref}" data-page="${page}">`;
+            for(let item in data[i])
+            {
+                row += `<td>${data[i][item]}</td>`;
+            }
+            row += "</tr>";
+            rows += row;
+        }
+    body.innerHTML = rows;
+    eventListeners();
 }
 //----------------------------------------------------------------FUNCTION TO LOAD PROFILE TABLE-------------------------------------------------------------
 function getProfileTable(keys, data, table)
@@ -197,10 +206,10 @@ function getProfileTable(keys, data, table)
             }
         }
     table.innerHTML = rows;
+    eventListeners();
 }
 //----------------------------------------------------------------FUNCTION TO LOAD TABLE HEADER-------------------------------------------------------------
 function getHead(table){ //loads in the header row of the table
-    //evetually add function call to backend for the json file
     const tableData = table.getAttribute('table-data');
     fetch(`${tableData}`)
     .then(response => {
@@ -220,7 +229,16 @@ function getHead(table){ //loads in the header row of the table
             }
             rows += "</tr>";
             header.innerHTML = rows;
-            getBody(result.data); //loads in the body rows of the table
+            const body = document.querySelector('tbody');
+            const bodyTag = body.getAttribute('tag');
+            if(bodyTag === "link")
+            {
+                getUsersBody(result.data, body);
+            }
+            else
+            {
+                getBody(result.data); //loads in the body rows of the table
+            }
         }
         else
         {
@@ -233,7 +251,6 @@ function getHead(table){ //loads in the header row of the table
         console.error('Failed to fetch table data', error);
     });
 }
-
 //----------------------------------------------------------------FUNCTION TO LOAD TABLE BODY-------------------------------------------------------------
 function getBody(data)
 {
@@ -250,8 +267,8 @@ function getBody(data)
             rows += row;
         }
     body.innerHTML = rows;
+    eventListeners();
 }
-
 //----------------------------------------------------------------FUNCTION TO FETCH AND LOAD CONTENT-------------------------------------------------------------
 function fetchContent(page) 
 {
@@ -262,6 +279,8 @@ function fetchContent(page)
     .then(response => response.text())
     .then(data => 
     {
+        //TODO: Fix this to make listers function to wait until table is loaded in
+        //possibly make function who runs with a returned value from getHead()
         if (contentElement) 
             {
                 contentElement.innerHTML = data;
@@ -275,10 +294,8 @@ function fetchContent(page)
                     });
                 }
                 console.log('Content Loaded!'); //console log output for status
-                console.log(''); //console log output for status
                 contentElement.classList.remove('loading');        
-                eventListeners();  
-
+                eventListeners(); 
             }
     })
     .catch(error => 
