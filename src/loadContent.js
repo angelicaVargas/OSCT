@@ -183,6 +183,7 @@ function getProfileTable(keys, data, table)
 }
 //----------------------------------------------------------------FUNCTION TO LOAD TABLE HEADER-------------------------------------------------------------
 function getHead(table){ //loads in the header row of the table
+    //evetually add function call to backend for the json file
     const tableData = table.getAttribute('table-data');
     fetch(`${tableData}`)
     .then(response => {

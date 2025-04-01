@@ -4,7 +4,7 @@
 <body>
     <div id="header"></div> 
     <div class="main-content d-flex align-self-center">
-        <div class="profile-container mt-5"> <!--mt-5: larger top margin-->
+        <div class="profile-container mt-5">
             <div class="card">
                 <div class="top-buttons d-flex flex-row align-self-center">
                     <button id="back-btn" class="btn-back" href="/src/components/personnel_user/users.html" data-page="personnel_user/users">&lt; Go Back</button>
@@ -14,37 +14,11 @@
                     <h1 class="card-title">Patient Name</h1>
                     <div class="information-container d-flex flex-column align-items-left">
                         <h2 class="container-header">Patient Information</h2>
-                        <table class="info-table">
-                            <tr>
-                                <td><strong>Patient ID</strong></td>
-                                <td>xxxxxxxxxx</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Name of School</strong></td>
-                                <td>School Name</td>
-                            </tr>
-                            <tr>
-                                <td><strong>DOB</strong></td>
-                                <td>Month/Day/Year</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Gender</strong></td>
-                                <td>Male/Female</td>
-                            </tr>
-                        </table>
+                        <table id="Table" class="table" table-data="/src/components/patient_user/infoData.json"></table>
                     </div>
                     <div class="contact-container d-flex flex-column align-items-left">
                         <h2 class="container-header">Contact Information</h2>
-                        <table class="info-table">
-                            <tr>
-                                <td><strong>Legal Guardian</strong></td>
-                                <td>Name of Legal Guardian</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Phone #</strong></td>
-                                <td>(xxx)xxx-xxxx</td>
-                            </tr>
-                        </table>
+                        <table id="Table" class="table" table-data="/src/components/patient_user/contactData.json"></table>
                     </div>
                 </div>
             </div>
@@ -57,6 +31,8 @@
         </div>
     </div>
     <script src="/src/loadContent.js"></script>
+    <script src="/src/components/patient_user/infoData.json"></script>
+    <script src="/src/components/patient_user/contactData.json"></script>
     <script type="module" src="/src/main.js"></script>
 </body>
 
@@ -118,7 +94,7 @@
         border:0.063rem solid rgba(0, 0, 0, 0.30);
         background:#FFF;
     }
-    .info-table {
+    .table {
         margin-left:0.875rem;
         color:#000000;
         font-size:1rem;
