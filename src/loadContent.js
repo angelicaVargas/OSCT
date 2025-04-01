@@ -3,7 +3,7 @@ function loadContent(userHeader)
 {
     //-----------------------------------------------------------------------Loads Header-------------------------------------------------------------------------
     const headerElement = document.getElementById('header');
-    if (headerElement.innerHTML.trim() !== "")
+    if (headerElement?.innerHTML.trim() !== "")
         {
             return;
         }
@@ -52,22 +52,39 @@ function navbarListeners() {
             });
         });
 
-    //------------------------------------------------------Event Listener for 'Profile' Page Button-------------------------------------------------------------
-    console.log('Adding Profile Event Listener.......................'); //console log output for status
-    const profileButton = document.getElementById('profile-button');
-    if(profileButton)
-        {
-            console.log('Profile Event Listener Added!'); //console log output for status
-            profileButton.addEventListener('click', function(event)
-            {
+    //------------------------------------------------------Event Listener for 'Profile' Dropdown Button-------------------------------------------------------------
+    console.log('Adding Profile Dropdown Event Listener.......................'); // console log output for status
+    const userType = sessionStorage.getItem('userType'); // get the stored user type
+    console.log('User Type:', userType); 
+    if (userType) {
+        const profileButton = document.getElementById('profile-button');
+        
+        if (profileButton) {
+            console.log('Profile Dropdown Event Listener Added!'); 
+            
+            profileButton.addEventListener('click', function (event) {
                 event.preventDefault();
-                const page = profileButton.getAttribute('data-page');
-                console.log('profile page', page); //console log output for error checking
+                const page = `${userType}_user/profile`; // dynamically set the profile page
                 fetchContent(page);
                 updateActiveTab(page);
                 updateHistory(page);
             });
+        } else {
+            console.warn('Profile button not found in the DOM.');
         }
+    }
+    //------------------------------------------------------Event Listener for 'Sign Out' Dropdown Button-------------------------------------------------------------
+    const signOutButton = document.getElementById('signout-button');
+    if (signOutButton) {
+        signOutButton.addEventListener('click', function (event) {
+            event.preventDefault();
+            console.log('Signing out...');
+            // TODO: make sure this actually clears the storage
+            localStorage.clear(); // clear session or authentication data (?)
+            sessionStorage.clear();
+            loadLogin(); // call the function to load up the login page
+        });
+    }
 }
 
 //----------------------------------------------------------FUNCTION TO LOAD OTHER EVENT LISTENERS---------------------------------------------------------------------------------
