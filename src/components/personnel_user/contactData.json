@@ -1,0 +1,12 @@
+{
+    "data": [
+        {
+            "email" : "email@",
+            "phone" : "(xxx)xxx-xxxx"
+        }
+    ],
+    "keys": [
+        "Email",
+        "Phone #"
+    ]
+}

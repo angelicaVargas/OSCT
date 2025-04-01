@@ -14,31 +14,19 @@
                     <h1 class="card-title">Personnel Name</h1>
                     <div class="information-container d-flex flex-column align-items-left">
                         <h2 class="container-header">User Information</h2>
-                        <table class="info-table">
-                            <tr>
-                                <td><strong>Position</strong></td>
-                                <td>Position Title</td>
-                            </tr>
-                        </table>
+                        <table id="Table" class="table" table-data="/src/components/personnel_user/infoData.json"></table>
                     </div>
                     <div class="contact-container d-flex flex-column align-items-left">
                         <h2 class="container-header">Contact Information</h2>
-                        <table class="info-table">
-                            <tr>
-                                <td><strong>Email</strong></td>
-                                <td>email@</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Phone #</strong></td>
-                                <td>(xxx)xxx-xxxx</td>
-                            </tr>
-                        </table>
+                        <table id="Table" class="table" table-data="/src/components/personnel_user/contactData.json"></table>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <script src="/src/loadContent.js"></script>
+    <script src="/src/components/personnel_user/infoData.json"></script>
+    <script src="/src/components/personnel_user/contactData.json"></script>
     <script type="module" src="/src/main.js"></script>
 </body>
 <style>
@@ -56,7 +44,7 @@
     .card {
         background-color:#F2F2F2;
         width:545px;
-        height:377px;
+        height:auto;
         position:relative;
     }
     .top-buttons {
@@ -86,7 +74,7 @@
     .information-container {
         margin-top:12px;
         width:449px;
-        height:80px;
+        height:auto;
         border-radius:6px;
         border:1px solid rgba(0, 0, 0, 0.30);
         background:#FFF;
@@ -94,16 +82,17 @@
     .contact-container {
         margin-top:15px;
         width:449px;
-        height:107px;
+        height:auto;
         border-radius:6px;
         border:1px solid rgba(0, 0, 0, 0.30);
         background:#FFF;
     }
-    .info-table {
+    .table {
         margin-left:14px;
         color:#000000;
         font-size:16px;
         font-weight:400;
+        width:auto;
     }
     .btn-back {
         position:absolute;

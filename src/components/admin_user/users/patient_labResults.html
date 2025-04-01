@@ -4,38 +4,19 @@
 <body>
     <div id="header"></div> 
     <div class="main-content">
-        <div class="document-container mt-5b"> <!--mt-5: larger top margin-->
+        <div class="document-container mt-5b">
             <div class="card">
                 <div class="top-buttons d-flex flex-row align-self-center">
                     <button id="back-btn" class="btn-back" href="/src/components/admin_user/users/patient_users.html" data-page="admin_user/users/patient_users">&lt; Go Back</button>
                     <button class="btn-edit">[Upload Document]</button>
                 </div>
-                <div class="card-body d-flex flex-column"> <!--Makes card customizable-->
+                <div class="card-body d-flex flex-column">
                     <div class="document-content">
                         <h1 class="card-title">Lab Results</h1>
-                        <!-- Example table to show until database is ready-->
-                        <h2 class="table-title">Example List of Lab Results</h2>
-                        <table class="table table-hover">
-                            <thead>
-                              <tr>
-                                <th>Document Name</th>
-                                <th>Date Assigned</th>
-                                <th>Download Link</th>
-                              </tr>
-                            </thead>
-                            <tbody> <!-- id="function to load documents into table"-->
-                              <!-- Add functionality to pull documents from somewhere, database?-->
-                                <tr>
-                                    <td>Alice</td>
-                                    <td>Kent</td>
-                                    <td>Personnel</td>
-                                </tr>
-                                <tr>
-                                    <td>Alice</td>
-                                    <td>Kent</td>
-                                    <td>Personnel</td>
-                                </tr>
-                            </tbody>
+                        <h2 class="table-title">List of Assigned Lab Results</h2>
+                        <table id="Table" class="table table-hover" table-data="/src/components/patient_user/labData.json">
+                            <thead></thead>
+                            <tbody></tbody>
                         </table>
                     </div>
                 </div>
@@ -49,6 +30,7 @@
         </div>
     </div>
     <script src="/src/loadContent.js"></script>
+    <script src="/src/components/patient_user/labData.json"></script>
     <script type="module" src="/src/main.js"></script>
 </body>
 <style>
@@ -56,7 +38,7 @@
         margin-top:2rem;
         display:flex;
         justify-content:center;
-        width: 100%;
+        width:100%;
         min-height:100vh;
     }
     .document-container{
@@ -75,8 +57,8 @@
         font-size:2rem;
         font-weight:500;
         text-align:left;
-        margin-bottom:1.5625rem;
-        margin-top:1.5625rem;
+        margin-bottom:1.125rem;
+        margin-top:1.563rem;
     }
     .table{
         margin-bottom:0px;
@@ -92,14 +74,14 @@
         color:#000;
     }
     .table-title{
-        font-size: 20px;
-        margin-bottom:20px;
+        font-size:1.25rem;
+        margin-bottom:1.563rem;
     }
     .button-container {
         width:13.375rem;
         height:17rem;
         display:flex;
-        flex-direction: column;
+        flex-direction:column;
         justify-content:space-between;
         margin-right:0.5rem;
         margin-left:0.5rem;

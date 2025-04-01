@@ -1,52 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- Personnel Schedule Page -->
 <body>
-    <!-- Placeholder for the header -->
     <div id="header"></div> 
-    
-    <!-- Main Content -->
     <div class="main-content">
-        <div class="schedule-container mt-5"> <!--mt-5: larger top margin-->
+        <div class="schedule-container mt-5">
           <div class="card">
             <button class="btn-page btn-primary">[Update Schedule]</button>
-            <div class="card-body d-flex flex-column"> <!--Makes card customizable-->
+            <div class="card-body d-flex flex-column">
                   <div class="schedule-content">
-                    <h1 class="card-title">Personnel Schedule</h1>
-                    <h2 class="table-title">Example Schedule Display Filler</h2>
-                    <!-- Example table to show until database is ready-->
-                    <table class="table">
-                        <thead>
-                          <tr>
-                            <th>Name of School</th>
-                            <th>Location</th>
-                            <th>Date</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>FRANCISCO HERNANDEZ ESPINOSA</td>
-                            <td>COLIMA</td>
-                            <td>LUNES 23/09/24</td>
-                          </tr>
-                          <tr>
-                            <td>JESÚS SILVERIO CAVAZOS CEBALLOS</td>
-                            <td>COLIMA</td>
-                            <td>LUNES 23/09/24</td>
-                          </tr>
-                          <tr>
-                            <td>JESUS ALCARAZ RODRIGUEZ</td>
-                            <td>LA ESPERANZA</td>
-                            <td>LUNES 23/09/24</td>
-                          </tr>
-                        </tbody>
+                    <h1 class="card-title">Programación vista a Planteles Escolares</h1>
+                    <h2 class="table-title">Operación Salud Colima Tamizaje</h2>
+                    <table id="Table" class="table" table-data="/src/components/scheduleData.json">
+                      <thead class="tHead"></thead>
+                      <tbody class="tBody"></tbody>
                       </table>
                   </div>
                 </div>
             </div>
         </div>
     </div>
-
     <script src="/src/loadContent.js"></script>
+    <script src="/src/components/scheduleData.json"></script>
     <script type="module" src="/src/main.js"></script>
 </body>
 
@@ -59,7 +34,7 @@
         min-height: 100vh;
     }
     .schedule-container {
-        width: 70%;
+        width: 80%;
     }
     .card {
         background-color:#F2F2F2;
@@ -67,15 +42,15 @@
         min-height: 100vh;
     }
     .schedule-content{
-        margin-left:25px;
-        margin-right:25px;
+      margin-left:1.563rem;
+      margin-right:1.563rem;
     }
     .card-title {
-      font-size:32px;
-      font-weight: 500;
+      font-size:2rem;
+      font-weight:500;
       text-align:left;
-      margin-bottom:25px;
-      margin-top:25px;
+      margin-bottom:1.125rem;
+      margin-top:1.563rem;
     }
     .table{
         margin-bottom:0px;
@@ -84,15 +59,9 @@
         align-items:center;
 
     }
-    .td a{
-        display:flex;
-        align-items:center;
-        justify-content:center;
-        color:#000;
-    }
     .table-title {
-        font-size: 20px;
-        margin-bottom:20px;
+      font-size:1.25rem;
+      margin-bottom:1.563rem;
     }
     .btn-page {
         position:absolute;
@@ -104,6 +73,11 @@
         font-size:20px;
         font-weight:500;
   }
+  .tHead {
+        font-size:0.938rem;
+    }
+    .tBody {
+        font-size:0.75rem;
+    }
 </style>
-
 </html>
