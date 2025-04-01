@@ -1,0 +1,12 @@
+{
+    "data": [
+        {
+            "parent" : "Name of Legal Guardian",
+            "phone" : "(xxx)xxx-xxxx"
+        }
+    ],
+    "keys": [
+        "Legal Guardian",
+        "Phone #"
+    ]
+}
