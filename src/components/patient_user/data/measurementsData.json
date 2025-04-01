@@ -1,0 +1,24 @@
+{
+    "data": [
+        {
+            "Waist:" : "xxx cm",
+            "Hip:" : "xxx cm",
+            "Waist to Hip Ratio:" : "###",
+            "Body Mass:" : "###",
+            "Cholesterol:" : "x mg/dL",
+            "Glucose Level:" : "x mg/dL",
+            "Hemoglobin:" : "xxx %",
+            "Triglycerides:" : "x mg/dL"
+        }
+    ],
+    "keys": [
+        "Waist:",
+        "Hip:",
+        "Waist to Hip Ratio:",
+        "Body Mass:",
+        "Cholesterol:",
+        "Glucose Level:",
+        "Hemoglobin:",
+        "Triglycerides:"
+    ]
+}

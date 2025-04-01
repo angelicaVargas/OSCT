@@ -13,40 +13,7 @@
                 <div class="card-body d-flex flex-column align-self-center align-items-left"> <!--Makes card customizable-->
                     <h1 class="card-title">Patient Measurements</h1>
                     <div class="measurements-container d-flex flex-column align-items-left">
-                        <table class="info-table">
-                            <tr>
-                                <td><strong>Waist:</strong></td>
-                                <td>xxx cm</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Hip:</strong></td>
-                                <td>xxx cm</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Waist to Hip Ratio:</strong></td>
-                                <td>###</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Body Mass:</strong></td>
-                                <td>###</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Cholesterol:</strong></td>
-                                <td>x mg/dL</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Glucose Level:</strong></td>
-                                <td>x mg/dL</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Hemoglobin:</strong></td>
-                                <td>xxx %</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Triglycerides:</strong></td>
-                                <td>x mg/dL</td>
-                            </tr>
-                        </table>
+                        <table id="Table" class="table" table-data="/src/components/patient_user/data/measurementsData.json"></table>
                     </div>
                 </div>
             </div>
@@ -59,6 +26,7 @@
         </div>
     </div>
     <script src="/src/loadContent.js"></script>
+    <script src="/src/components/patient_user/data/measurementsData.json"></script>
     <script type="module" src="/src/main.js"></script>
 </body>
 
@@ -116,7 +84,7 @@
         justify-content: left;
         align-items: left;
     }
-    .info-table {
+    .table {
         color:#000000;
         font-size:1rem;
         font-weight:400;

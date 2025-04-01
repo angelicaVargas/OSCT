@@ -17,42 +17,17 @@
                     <div class="document-content">
                     <h1 class="card-title">Admin Users</h1>
                     <!--Table List Container-->
-                    <table class="table table-hover">
-                        <thead>
-                          <tr>
-                            <th>ID Number</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>User Type</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr class="listed-user" href="/src/components/admin_user/users/admin_profile.html" data-page="admin_user/users/admin_profile">
-                            <td>xxxxxxxxx</td>
-                            <td>Alice</td>
-                            <td>Kent</td>
-                            <td>Admin</td>
-                          </tr>
-                          <tr class="listed-user" href="/src/components/admin_user/users/admin_profile.html" data-page="admin_user/users/admin_profile">
-                            <td>xxxxxxxxx</td>
-                            <td>Bob</td>
-                            <td>McClerk</td>
-                            <td>Admin</td>
-                          </tr>
-                          <tr class="listed-user" href="/src/components/admin_user/users/admin_profile.html" data-page="admin_user/users/admin_profile">
-                            <td>xxxxxxxxx</td>
-                            <td>Ramona</td>
-                            <td>Kimberk</td>
-                            <td>Admin</td>
-                          </tr>
-                        </tbody>
-                      </table>
+                    <table id="Table" class="table table-hover" table-data="/src/components/admin_user/users/data/adminUsersData.json">
+                        <thead></thead>
+                        <tbody tag="link" href="/src/components/admin_user/users/admin_profile.html" data-page="admin_user/users/admin_profile"></tbody>
+                    </table>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <script src="/src/loadContent.js"></script>
+    <script src="/src/components/admin_user/users/data/adminUsersData.json"></script>
     <script type="module" src="/src/main.js"></script>
 </body>
 <style>
